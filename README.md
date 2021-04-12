@@ -1,7 +1,7 @@
 # ENHANCE
 > 문화 예술 컨텐츠 공유 SNS
 
-# Inspiration
+## Inspiration
  * Behance <https://www.behance.net/>
  * Pinterest <https://www.pinterest.co.kr/>
 
