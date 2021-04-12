@@ -1,9 +1,11 @@
 # ENHANCE
 > 문화 예술 컨텐츠 공유 SNS
+일상생활 소통을 주로하는 일반적인 SNS와 다른, 자신의 예술 창작물을 게시하고 서로 교류함을 목적으로 하는 크리에이터 들을 위한 SNS 서비스
 
 ## Inspiration
  * Behance <https://www.behance.net/>
  * Pinterest <https://www.pinterest.co.kr/>
+주로 Behance를 벤치마킹 하여 기획하고 개발 하였으며, Pinterest를 참고하였음
 
 ## 프로젝트 목표
  * 크리에이터들의 창작물 전시와 공유
