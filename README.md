@@ -1,6 +1,10 @@
 # ENHANCE
 > 문화 예술 컨텐츠 공유 SNS
 
+# Inspiration
+ * Behance <https://www.behance.net/>
+ * Pinterest <https://www.pinterest.co.kr/>
+
 ## 프로젝트 목표
  * 크리에이터들의 창작물 전시와 공유
  * 크리에이터 간의 소통과 교류 활성화
