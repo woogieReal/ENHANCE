@@ -7,7 +7,15 @@
  * 크리에이터의 창작효율 증진 및 창의성 증대
 
 ## 개발환경
- * 
+ * java 1.8
+ * oracle 18c
+ * apache-tomcat-9.0.37
+ * html
+ * css
+ * javascript
+ * jsp
+ * svn(SubVersion)
+ * slack
 
 ## 이용 방법
 
