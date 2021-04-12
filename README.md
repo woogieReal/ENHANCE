@@ -16,10 +16,11 @@
  * apache-tomcat-9.0.37
  * html
  * css
- * javascript
  * jsp
+ * javascript
+ * jQuery
+ * jstl
  * svn(SubVersion)
- * slack
 
 ## 이용 방법
 
