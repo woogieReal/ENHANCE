@@ -1,0 +1,470 @@
+2021-04-06 20:10:10,460 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:375)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:10:10,464 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:10:10,464 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=0, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@3aeaafa6]
+2021-04-06 20:10:10,586 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:10:11,019 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@366647c2
+2021-04-06 20:10:11,020 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:10:11,102 DEBUG [main] dao.MemberDao     (MemberDao.java:1255)     - doSaveOrLikePost:  ORA-12899: value too large for column "WOOGIE"."STORAGE"."STORE_TYPE" (actual: 2, maximum: 1)
+
+2021-04-06 20:10:11,106 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:384)     - xxxxxxxxxxxxxxxxxxxxxx
+2021-04-06 20:10:11,107 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:385)     -  저장/좋아요 실패
+2021-04-06 20:10:11,107 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:386)     - xxxxxxxxxxxxxxxxxxxxxx
+2021-04-06 20:11:03,261 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:375)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:11:03,264 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:11:03,264 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=0, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:11:03,386 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:11:03,785 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:11:03,785 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:11:03,865 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:11:03,867 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:380)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:11:03,867 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:381)     -  저장/좋아요 성공
+2021-04-06 20:11:03,867 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:382)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:14:23,125 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:375)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:14:23,128 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:14:23,128 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=0, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:14:23,249 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:14:23,641 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:14:23,641 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:14:23,715 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:14:23,717 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:380)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:14:23,717 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:381)     -  저장/좋아요 성공
+2021-04-06 20:14:23,717 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:382)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:20:59,777 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:375)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:20:59,779 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:20:59,779 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=0, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:20:59,903 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:21:00,306 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:21:00,307 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:21:00,382 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:21:00,385 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:380)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:21:00,385 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:381)     -  저장/좋아요 성공
+2021-04-06 20:21:00,385 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:382)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:22:38,832 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:402)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:22:38,835 DEBUG [main] dao.MemberDao     (MemberDao.java:1271)     - doCanselSaveOrLikePost
+2021-04-06 20:22:38,835 DEBUG [main] dao.MemberDao     (MemberDao.java:1272)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=0, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:22:38,956 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:22:39,385 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:22:39,385 DEBUG [main] dao.MemberDao     (MemberDao.java:1288)     -  DELETE FROM storage            
+ WHERE post_no = ?              
+ AND store_type = ?             
+
+2021-04-06 20:22:39,459 DEBUG [main] dao.MemberDao     (MemberDao.java:1296)     - 4. 쿼리 수행: 1
+2021-04-06 20:22:39,461 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:407)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:22:39,461 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:408)     -  저장/좋아요 삭제 성공
+2021-04-06 20:22:39,461 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:409)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:23:49,882 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:376)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:23:49,885 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:23:49,885 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=0, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:23:50,009 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:23:50,417 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:23:50,417 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:23:50,492 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:23:50,495 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:381)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:23:50,495 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:382)     -  저장/좋아요 성공
+2021-04-06 20:23:50,495 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:24:06,208 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:402)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:24:06,211 DEBUG [main] dao.MemberDao     (MemberDao.java:1271)     - doCanselSaveOrLikePost
+2021-04-06 20:24:06,211 DEBUG [main] dao.MemberDao     (MemberDao.java:1272)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=0, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:24:06,334 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:24:06,737 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:24:06,737 DEBUG [main] dao.MemberDao     (MemberDao.java:1289)     -  DELETE FROM storage            
+ WHERE post_no = ?              
+ AND store_type = ?             
+ AND member_no = ?             
+
+2021-04-06 20:24:06,813 DEBUG [main] dao.MemberDao     (MemberDao.java:1298)     - 4. 쿼리 수행: 1
+2021-04-06 20:24:06,818 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:407)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:24:06,818 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:408)     -  저장/좋아요 삭제 성공
+2021-04-06 20:24:06,818 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:409)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:24:27,047 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:376)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:24:27,050 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:24:27,050 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=0, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:24:27,173 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:24:27,580 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:24:27,581 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:24:27,660 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:24:27,665 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:381)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:24:27,666 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:382)     -  저장/좋아요 성공
+2021-04-06 20:24:27,666 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:26:21,092 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:377)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:26:21,095 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:26:21,095 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:26:21,223 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:26:21,625 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:26:21,625 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:26:21,703 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:26:21,708 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:382)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:26:21,708 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     -  저장/좋아요 성공
+2021-04-06 20:26:21,708 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:384)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:26:33,936 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:404)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:26:33,939 DEBUG [main] dao.MemberDao     (MemberDao.java:1271)     - doCanselSaveOrLikePost
+2021-04-06 20:26:33,939 DEBUG [main] dao.MemberDao     (MemberDao.java:1272)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:26:34,065 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:26:34,472 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:26:34,472 DEBUG [main] dao.MemberDao     (MemberDao.java:1289)     -  DELETE FROM storage            
+ WHERE post_no = ?              
+ AND store_type = ?             
+ AND member_no = ?             
+
+2021-04-06 20:26:34,551 DEBUG [main] dao.MemberDao     (MemberDao.java:1298)     - 4. 쿼리 수행: 1
+2021-04-06 20:26:34,556 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:409)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:26:34,556 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:410)     -  저장/좋아요 삭제 성공
+2021-04-06 20:26:34,556 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:411)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:26:46,987 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:377)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:26:46,989 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:26:46,989 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:26:47,114 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:26:47,514 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:26:47,514 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:26:47,590 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:26:47,593 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:382)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:26:47,593 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     -  저장/좋아요 성공
+2021-04-06 20:26:47,593 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:384)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:28:00,910 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:378)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:28:00,913 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:28:00,913 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:28:01,036 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:28:01,438 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:28:01,439 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:28:01,515 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:28:01,518 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:28:01,518 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:384)     -  저장/좋아요 성공
+2021-04-06 20:28:01,518 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:385)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:28:24,942 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:378)     - store: StorageVO [storage_no=0, store_type=2, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:28:24,945 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:28:24,945 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=2, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:28:25,068 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:28:25,470 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:28:25,470 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:28:25,547 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:28:25,549 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:28:25,549 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:384)     -  저장/좋아요 성공
+2021-04-06 20:28:25,549 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:385)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:28:46,529 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:405)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:28:46,532 DEBUG [main] dao.MemberDao     (MemberDao.java:1271)     - doCanselSaveOrLikePost
+2021-04-06 20:28:46,532 DEBUG [main] dao.MemberDao     (MemberDao.java:1272)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:28:46,652 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:28:47,049 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:28:47,049 DEBUG [main] dao.MemberDao     (MemberDao.java:1289)     -  DELETE FROM storage            
+ WHERE post_no = ?              
+ AND store_type = ?             
+ AND member_no = ?             
+
+2021-04-06 20:28:47,123 DEBUG [main] dao.MemberDao     (MemberDao.java:1298)     - 4. 쿼리 수행: 1
+2021-04-06 20:28:47,125 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:410)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:28:47,125 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:411)     -  저장/좋아요 삭제 성공
+2021-04-06 20:28:47,126 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:412)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:29:17,386 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:378)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:29:17,388 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:29:17,389 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:29:17,513 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:29:17,912 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:29:17,912 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:29:17,986 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:29:17,989 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:29:17,989 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:384)     -  저장/좋아요 성공
+2021-04-06 20:29:17,989 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:385)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:42:09,575 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:378)     - store: StorageVO [storage_no=0, store_type=49, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:42:09,578 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:42:09,578 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=49, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:42:09,700 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:42:10,092 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:42:10,093 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:42:10,170 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:42:10,172 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:42:10,172 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:384)     -  저장/좋아요 성공
+2021-04-06 20:42:10,172 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:385)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:42:40,278 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:378)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:42:40,281 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:42:40,281 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:42:40,403 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:42:40,785 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:42:40,785 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:42:40,861 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:42:40,862 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:42:40,864 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:384)     -  저장/좋아요 성공
+2021-04-06 20:42:40,864 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:385)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:42:49,842 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:405)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:42:49,845 DEBUG [main] dao.MemberDao     (MemberDao.java:1271)     - doCanselSaveOrLikePost
+2021-04-06 20:42:49,845 DEBUG [main] dao.MemberDao     (MemberDao.java:1272)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:42:49,969 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:42:50,363 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:42:50,363 DEBUG [main] dao.MemberDao     (MemberDao.java:1289)     -  DELETE FROM storage            
+ WHERE post_no = ?              
+ AND store_type = ?             
+ AND member_no = ?             
+
+2021-04-06 20:42:50,439 DEBUG [main] dao.MemberDao     (MemberDao.java:1298)     - 4. 쿼리 수행: 1
+2021-04-06 20:42:50,441 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:410)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:42:50,441 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:411)     -  저장/좋아요 삭제 성공
+2021-04-06 20:42:50,441 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:412)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:42:59,618 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:378)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:42:59,621 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:42:59,621 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=252, member_no=1, pic_group=253, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:42:59,742 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:43:00,135 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:43:00,135 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:43:00,209 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:43:00,212 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:43:00,212 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:384)     -  저장/좋아요 성공
+2021-04-06 20:43:00,212 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:385)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:43:06,786 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:378)     - store: StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:43:06,789 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:43:06,789 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=1, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:43:06,913 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:43:07,310 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:43:07,310 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:43:07,384 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:43:07,388 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:43:07,389 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:384)     -  저장/좋아요 성공
+2021-04-06 20:43:07,389 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:385)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:43:34,210 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:378)     - store: StorageVO [storage_no=0, store_type=2, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@13c27452]
+2021-04-06 20:43:34,213 DEBUG [main] dao.MemberDao     (MemberDao.java:1211)     - doSaveOrLikePost
+2021-04-06 20:43:34,213 DEBUG [main] dao.MemberDao     (MemberDao.java:1212)     - 0.param:StorageVO [storage_no=0, store_type=2, reg_dt=, post_no=249, member_no=1, pic_group=249, toString()=com.sist.feb.storage.domain.StorageVO@63440df3]
+2021-04-06 20:43:34,335 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-04-06 20:43:34,730 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@482bce4f
+2021-04-06 20:43:34,730 DEBUG [main] dao.MemberDao     (MemberDao.java:1240)     -  INSERT INTO storage (            
+     storage_no,                  
+     store_type,                  
+     reg_dt,                      
+     post_no,                     
+     member_no,                   
+     pic_group                    
+ ) VALUES (                       
+     STORAGE_SEQ.nextval,         
+     ?,                           
+     SYSDATE,                     
+     ?,                           
+     ?,                           
+     ?                            
+ )                                
+
+2021-04-06 20:43:34,805 DEBUG [main] dao.MemberDao     (MemberDao.java:1250)     - 4. 쿼리 수행: 1
+2021-04-06 20:43:34,808 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:383)     - ★★★★★★★★★★★★★★★★★★
+2021-04-06 20:43:34,808 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:384)     -  저장/좋아요 성공
+2021-04-06 20:43:34,808 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:385)     - ★★★★★★★★★★★★★★★★★★

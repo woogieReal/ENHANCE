@@ -1,0 +1,116 @@
+/**
+* <pre>
+* com.sist.feb.category.dao
+* Class Name : CategoryDao.java
+* Description:
+* Author: 임하람
+* Since: 2021/03/08
+* Version 0.1
+* Copyright (c) by H.R.LIM All right reserved.
+* Modification Information
+* 수정일   수정자    수정내용
+*-----------------------------------------------------
+*2021/03/08 최초생성
+*-----------------------------------------------------
+* </pre>
+*/
+package com.sist.feb.category.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.sist.feb.category.cmn.DTO;
+import com.sist.feb.category.cmn.WorkStandard;
+import com.sist.feb.category.domain.CategoryVO;
+import com.sist.feb.member.cmn.ConnectionMaker;
+import com.sist.feb.member.cmn.JDBCUtil;
+
+/**
+ * @author 임하람
+ *
+ */
+public class CategoryDao implements WorkStandard {
+	final Logger LOG = Logger.getLogger(CategoryDao.class);
+	
+	public CategoryDao() { }//default 생성자
+	
+	/**
+	 * doCateRetrieve :카테고리 목록조회
+	 * @return list
+	 */
+	@Override
+	public List<CategoryVO> doCateRetrieve(DTO param) {
+		
+	List<CategoryVO> list = new ArrayList<CategoryVO>();
+	CategoryVO inVO = (CategoryVO) param;
+	
+	LOG.debug("doCateRetrieve()");
+	LOG.debug("0.param:"+inVO);
+	
+	Connection connection =null;
+	PreparedStatement pstmt = null;
+	ResultSet rs  = null;
+	
+	try {
+		connection = ConnectionMaker.getConnection();
+		LOG.debug("2.데이터베이스 커넥션 구함 :"+connection);
+		
+		//3. 쿼리실행
+		StringBuffer sb = new StringBuffer(50);
+		sb.append("SELECT c.category_seq,	\n");
+		sb.append("       c.name         	\n");
+		sb.append("FROM category c       	\n");
+		sb.append("WHERE c.category_seq=?	\n");
+		
+		LOG.debug("2.1.쿼리실행 PreparedStatement :"+sb.toString());
+
+		pstmt = connection.prepareStatement(sb.toString());
+		LOG.debug("3. PreparedStatement : "+pstmt);
+		
+		//param set
+		pstmt.setInt(1, inVO.getCategory_seq());
+		
+		//쿼리실행
+		rs = pstmt.executeQuery();
+		LOG.debug("3.1. ResultSet :"+rs);
+		
+		while(rs.next() ==true) {
+			CategoryVO category = new CategoryVO();//return 객체생성
+			
+			category.setCategory_seq(rs.getInt("category_seq"));
+			category.setName(rs.getString("name"));
+			
+			//list에 추가
+			list.add(category);
+			
+		}//--while
+		
+		//조회 데이터 확인
+		LOG.debug("******************");
+		for(CategoryVO vo:list) {
+			LOG.debug(vo);
+		}
+		LOG.debug("*********조회(클릭)건수 :"+list.size());
+		
+	}catch(SQLException e) {
+		LOG.debug("SQLException"+e.getMessage());
+		e.printStackTrace();
+		
+	}finally {
+		
+	JDBCUtil.close(rs);
+	JDBCUtil.close(pstmt);
+	JDBCUtil.close(connection);
+	}//--finally
+
+	return list;
+	
+	}//--doCateRetrieve
+
+}//--class

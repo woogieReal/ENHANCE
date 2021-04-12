@@ -1,0 +1,312 @@
+/**
+* <pre>
+* com.sist.feb.post.dao
+* Class Name : PostDao.java
+* Description:
+* Author: 김혜영
+* Since: 2021/03/08
+* Version 0.1
+* Copyright (c) by H.R.LIM All right reserved.
+* Modification Information
+* 수정일   수정자    수정내용
+*-----------------------------------------------------
+*2021/03/08 최초생성
+*-----------------------------------------------------
+* </pre>
+*/
+package com.sist.feb.post.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.sist.feb.member.cmn.ConnectionMaker;
+import com.sist.feb.member.cmn.JDBCUtil;
+import com.sist.feb.post.cmn.PostDTO;
+import com.sist.feb.post.domain.PostVO;
+
+/**
+ * @author khy81
+ *
+ */
+
+
+/* <참고 자료>
+ * https://upcake.tistory.com/256?category=897762
+ * https://riucc.tistory.com/category/JSP%20%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EA%B8%B0?page=1 
+ * http://gurubee.net/article/80833
+ */
+
+public class PostDao{
+	
+	final Logger LOG = Logger.getLogger(PostDao.class);
+	
+	// 접속에 필요한 정보로 구성된 문자열(Connecting String)
+	final static String DB_URL = "jdbc:oracle:thin:@211.238.142.124:1521/xe";
+	final static String USER_ID = "feb";
+	final static String USER_PASS = "sistfeb";
+	
+	public PostDao() {
+		
+	}
+	
+	
+	public int doUpdate(PostDTO param) {
+		int flag =0;
+
+		PostVO inVO = (PostVO) param;
+		
+		//DB접속 클래스
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+			
+		try {
+			
+			connection = getConnection();
+			
+			StringBuffer sb = new StringBuffer(500);
+			sb.append(" UPDATE post             \n");
+			sb.append(" SET title = ?,          \n");
+			sb.append("     contents = ?,       \n");
+			sb.append("     mod_dt = SYSDATE    \n");
+			sb.append(" WHERE post_no = ?		\n");
+			
+			//3. 쿼리실행 PreparedStatement
+			LOG.debug("2.1 쿼리실행 PreparedStatement: \n" + sb.toString());
+			pstmt = connection.prepareStatement(sb.toString());
+			
+			pstmt.setString(1, inVO.getTitle());    
+			pstmt.setString(2, inVO.getContents());   
+			pstmt.setInt(3, inVO.getPostNo());        
+			
+			flag = pstmt.executeUpdate(); //flag값 return
+			LOG.debug("4. 쿼리실행 flag: " + flag);
+			
+		}catch(SQLException e) {
+			LOG.debug("SQLException: " + e.getMessage());
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+		}
+		
+		return flag;
+	}//--doUpdate()
+
+	
+	public PostVO doSelectOne(PostDTO param) {
+		PostVO post = null;
+		PostVO inVO = (PostVO) param;
+		
+		LOG.debug("doSelectOne()");
+		LOG.debug("0. param:" + inVO);
+		Connection connection  = null;
+		PreparedStatement pstmt = null;
+		
+		//Retrun Value처리 (ResultSet)
+		ResultSet rs = null; //return값을 받기위해
+		
+		try {
+			connection = getConnection();
+			
+			StringBuffer sb = new StringBuffer(500);
+			sb.append(" SELECT           	                                 \n");
+			sb.append("     post_no,     	                                 \n");
+			sb.append("     member_no,   	                                 \n");
+			sb.append("     title,       	                                 \n");
+			sb.append("     contents,    	                                 \n");
+			sb.append("     read_cnt,    	                                 \n");
+			sb.append("     reg_dt,      	                                 \n");
+			sb.append("     TO_CHAR(mod_dt,'YYYY-MM-DD HH24:MI:SS') mod_dt,  \n");
+			sb.append("     pic_no,      	                                 \n");
+			sb.append("     pic_group    	                                 \n");
+			sb.append(" FROM             	                                 \n");
+			sb.append("     post         	                                 \n");
+			sb.append(" WHERE post_no = ?	                                 \n");
+			LOG.debug("2.1 쿼리실행 PreparedStatement: \n" + sb.toString());
+			
+			pstmt = connection.prepareStatement(sb.toString());
+			LOG.debug("3. 쿼리실행 PreparedStatement: " + pstmt);
+			pstmt.setInt(1, inVO.getPostNo());
+			
+			rs = pstmt.executeQuery();
+			LOG.debug("3.1. ResultSet : "+rs);
+			
+			if(rs.next() == true) { 
+				post = new PostVO(); //return BoardVO 객체 생성
+				
+				post.setPostNo(rs.getInt("post_no"));
+				post.setMemberNo(rs.getString("member_no"));
+				post.setTitle(rs.getString("title"));
+				post.setContents(rs.getString("contents"));
+				post.setReadCnt(rs.getInt("read_cnt"));
+				post.setRegDt(rs.getString("reg_dt"));
+				post.setModDt(rs.getString("mod_dt"));
+				post.setPicNo(rs.getString("pic_no"));
+				post.setPicGroup(rs.getString("pic_group"));
+				
+			}
+			LOG.debug("3.2. post : " + post);
+		}catch(SQLException e) {
+			LOG.debug("SQLException: " + e.getMessage());
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(rs);
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+		}
+		return post;
+	}//--doSelectOne()
+	
+	//Post삭제 메서드
+	public int doDelete(PostDTO param) {
+		int flag =0;
+		PostVO inVO = (PostVO) param;
+		
+		//DB접속 클래스
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			//1.jdbc드라이버로딩, DB접속
+			connection = getConnection();
+			//오토커밋이 자동으로 작동되지 못하게
+			connection.setAutoCommit(false);
+			
+			StringBuffer sb = new StringBuffer(50);
+			//2.쿼리 실행
+			sb.append(" DELETE FROM post    \n");
+			sb.append(" WHERE post_no= ?   	\n");
+			
+			//3.쿼리 실행을 위한 객체 생성
+			pstmt = connection.prepareStatement(sb.toString());
+			
+			pstmt.setInt(1,inVO.getPostNo());
+			
+			LOG.debug("2.1 sql 쿼리 PreparedStatement: \n" + sb.toString());
+			LOG.debug("3. 쿼리실행 PreparedStatement:" + connection);
+			
+			flag = pstmt.executeUpdate();
+			LOG.debug("4. 쿼리실행 flag: " + flag);
+			
+			connection.commit();// 성공 시 커밋
+			
+		}catch(SQLException e) {
+			try {
+				connection.rollback();
+			}catch(SQLException e1) {
+				LOG.debug("SQLException: " + e1.getMessage());
+				e1.printStackTrace();
+			}
+			LOG.debug("SQLException: " + e.getMessage());
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+		}
+		return flag;
+	}//--doDelete()
+	
+	//Post작성 메서드
+	public int doInsert(PostDTO param) {
+		int flag = 0;
+		PostVO inVO = (PostVO) param;
+		LOG.debug("0.param: "+param);
+		
+		//DB접속 클래스
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		//PreparedStatement : binding sql을 쓴다. Statement보다 sql수행 속도가 우수
+		
+		try {
+			//1.jdbc드라이버로딩, DB접속
+			connection = getConnection();
+			
+			//2.쿼리 실행
+			StringBuffer sb = new StringBuffer(1000);
+			
+			sb.append(" INSERT INTO post ( 		\n");
+			sb.append("     post_no,      		\n");
+			sb.append("     member_no,     		\n");
+			sb.append("     title,         		\n");
+			sb.append("     contents,      		\n");
+			sb.append("     pic_no,        		\n");
+			sb.append("     pic_group      		\n");
+			sb.append(" ) VALUES (         		\n");
+			sb.append("     POST_SEQ.NEXTVAL,   \n");
+			sb.append("     ?,             		\n");
+			sb.append("     ?,             		\n");
+			sb.append("     ?,             		\n");
+			sb.append("     ?,             		\n");
+			sb.append("     ?              		\n");
+			sb.append(" )                  		\n");
+			
+			//3.쿼리 실행을 위한 객체 생성
+			pstmt = connection.prepareStatement(sb.toString());
+			
+			pstmt.setInt   (1, inVO.getPostNo());
+			pstmt.setString(2, inVO.getMemberNo());
+			pstmt.setString(3, inVO.getTitle());
+			pstmt.setString(4, inVO.getContents());
+			pstmt.setString(5, inVO.getPicNo());
+			pstmt.setString(6, inVO.getPicGroup());
+			
+			LOG.debug("2.1 sql 쿼리 PreparedStatement: \n" + sb.toString());
+			LOG.debug("3. 쿼리실행 PreparedStatement:" + connection);
+			
+			
+			//4.쿼리 실행 결과 처리 (flag=1(성공),2(실패))
+			flag = pstmt.executeUpdate();
+			LOG.debug("4. 쿼리실행 flag: " + flag);
+			
+		}catch(SQLException e) {
+			LOG.debug("SQLException:" + e.getMessage());
+			e.printStackTrace();
+		}finally {// 쿼리가 성공 또는 실패에 상관없이 사용한 자원을 해제한다
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+		}
+		return flag;
+	}//--doInsert메서드
+	
+	
+	/**
+	 * Driver 로딩,
+	 * 
+	 * @return Connection 중복코드를 메소드로 만들어서 사용하기
+	 * @throws SQLException 
+	 */
+	public Connection getConnection() throws SQLException {
+		Connection con = null; // 지역변수는메서드안에서만 쓰이는것
+
+		try {
+			//클래스 로더를 통해 해당 데이터베이스 드라이버 로드
+			//JVM에게 해당 클래스의 정보를 로드한다.
+			// 1. JDBC 드라이버 로딩
+			Class.forName("oracle.jdbc.driver.OracleDriver"); // OracleDriver클래스의 위치 : ""안의 내용이 틀리면 예외처리됨(대소문자 구분됨)
+		} catch (ClassNotFoundException e) {
+			LOG.debug("ClassNotFoundException:" + e.getMessage());
+			e.printStackTrace();
+		}
+		LOG.debug("1.JDBC 드라이버 로딩 성공!");
+
+		// 2. 데이터베이스 커넥션(접속): Connection객체 생성
+		con = DriverManager.getConnection(DB_URL, USER_ID, USER_PASS);
+
+		LOG.debug("2. 데이터베이스 커넥션 구함:" + con);
+		return con;
+	}//--getConnection
+	
+	
+	
+}//--class	
+
+
+
+

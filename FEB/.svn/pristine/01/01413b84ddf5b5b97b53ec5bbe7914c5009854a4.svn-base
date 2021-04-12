@@ -1,0 +1,113 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>댓글만</title>
+</head>
+<body>
+<section class="comment" align="center" >
+    <h2>댓글 COMMENT</h2>
+    
+     <!-- 덧글 입력하는 폼 -->
+                <form action="./insertCommentAction.jsp" method="post">
+                    <div class="comment_box" id="comment_box">
+                        
+                    <input type="text" class="comment_box" name="title" id="title" placeholder="이 프로젝트에 대해 어떻게 생각하십니까?">
+                    <button type="button" class="button" id="btnSave">댓글게시</button>
+                    </div>
+                  
+                </form>
+
+    
+           <table class="commentlist" style="width:50;" >
+			<td style="width: 15%;" float:left>작성자 이메일 : dmfsdfs@naver.com</td>
+			<td style="width: 15%;" float:right>작성일 : 2021/03/02 16:49:02</td>
+				</table>
+			
+			 <table class="commentlist" style="width:50;"float:left >
+			<td style="width: 33%;">댓글내용 ex:) Excellent work! And stunning presentation!!🔥 Looking forward to more from you :) </td>
+				
+				</table>
+			  <table class="commentbutton">
+      		 <button type="button" class="button2" id="btnSave">삭제</button>
+      		 </table> 
+			
+			
+			
+   			</section>
+
+					<!-- 덧글창 css -->
+          <style>
+
+
+ .action{width: 1000px; height: 100px;  margin:0 auto;
+}
+
+.comment_box{
+	
+	text-align:center;
+        width: 1000px;
+        font-size:10px;
+        	margin:0 auto;
+          }
+      
+.comment {
+text-align:center;
+    margin: 0;
+    padding: .3rem;
+    font: 1rem 'Fira Sans', sans-serif;
+	margin:0 auto;
+}
+
+.comment > h2,
+.commentlist {
+
+    margin: .5rem;
+    padding: .3rem;
+  font-size:10px;
+    width: 1000px;
+	margin:0 auto;
+}
+
+.commentlist {
+    background: right/contain content-box border-box no-repeat
+        url('/media/examples/rain.svg') white;
+}
+
+.commentlist > h2,
+.commentlist > td {
+    margin: .2rem;
+     font-size:10px;
+}
+.button {
+	background-color: #263343;
+	font-weight: bold;
+	color:#ffffff;
+	border: 0.1em solid gray;
+	border-radius: 6px;
+	padding: 5px;
+	margin: 5px;
+	width: 60px;
+	 font-size:3px;
+}
+
+.button2{
+
+background-color: #263343;
+	font-weight: bold;
+	color:#ffffff;
+	border: 0.1em solid gray;
+	border-radius: 6px;
+	padding: 5px;
+	margin: 5px;
+	width: 40px;
+	 font-size:3px;
+}
+.commentbutton{
+float:left;
+}
+          </style>      
+</body>
+</html>

@@ -1,0 +1,458 @@
+package com.sist.feb.member.controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+
+import com.sist.feb.follow.domain.FollowVO;
+import com.sist.feb.member.domain.MemberVO;
+import com.sist.feb.member.service.MemberService;
+import com.sist.feb.member.test.MemberServiceTestMain;
+import com.sist.feb.profile.image.domain.ProfileImageVO;
+import com.sist.feb.storage.domain.MemberPostVO;
+import com.sist.feb.storage.domain.StoreTwoVO;
+
+/**
+ * Servlet implementation class MemberController
+ */
+@WebServlet(description = "멤버", urlPatterns = { "/member/member.do" })
+public class MemberController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	final Logger LOG = Logger.getLogger(MemberController.class);
+	
+	MemberService memberService;
+	
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MemberController() {
+        super();
+        memberService = new MemberService();
+    }
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		//request에 들어오는 encoding을 일괄로 UTF-8로 처리
+		request.setCharacterEncoding("UTF-8");
+		String workType = request.getParameter("work_type");
+		
+		LOG.debug("--------------------------------------");
+		LOG.debug("workType : "+workType);
+		LOG.debug("--------------------------------------");
+		
+		switch(workType) {
+		case "update": doUpdate(request, response); break;
+		case "following": doInquireFollowing(request, response); break;
+		case "followed": doInquireFollowed(request, response); break;
+		case "member_post": doInquirePost(request, response); break;
+		case "save": doInquireStorageSave(request, response); break;
+		case "like": doInquireStorageLike(request, response); break;
+		case "unfollow": doUnfollow(request, response); break;
+		case "follow": doFollow(request, response); break;
+		case "login": login(request, response); break;
+		case "change_pw": doChangePw(request, response); break;
+		
+		}
+		
+
+	
+	}
+	
+	public void doSelectOne(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		MemberVO list = memberService.doSelectOne(new MemberVO(1, "Mark", "mark@gamil.com","mark123","america","I'm Mark!","21/03/04"));
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list: ", list);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_profile.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void doUpdate(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String pw = request.getParameter("pw");
+		String location = request.getParameter("location");
+		String intro = request.getParameter("intro");
+		String reg_dt = request.getParameter("reg_dt");
+		
+		LOG.debug(memberNo);
+		LOG.debug(name);
+		LOG.debug(email);
+		LOG.debug(pw);
+		LOG.debug(location);
+		LOG.debug(intro);
+		LOG.debug(reg_dt);
+		
+		MemberVO updateMember = new MemberVO(memberNo, name, email, pw, location, intro, reg_dt);
+    	MemberServiceTestMain testMain = new MemberServiceTestMain();    
+	    testMain.doUpdate(updateMember);
+	    	
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+	
+	}
+	
+	public void doInquireFollowing(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doInquireFollowing-");
+		LOG.debug("---------------------------------");
+		
+		//param -> DTO
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("memberNo: "+memberNo);
+		
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		List<FollowVO> list = memberService.doInquireFollowing(member);
+
+//		String arrStr = list.get(0).toString().substring(35);
+//		int endNum = arrStr.indexOf(",");
+//		
+//		int numStr = Integer.parseInt(arrStr.substring(0, endNum));
+//		LOG.debug("-numStr : "+numStr);
+		
+		
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void doInquireFollowed(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doInquireFollowed-");
+		LOG.debug("---------------------------------");
+		
+		//param -> DTO
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("memberNo: "+memberNo);
+		
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		List<FollowVO> list = memberService.doInquireFollowed(member);
+		LOG.debug("-list.size"+list.size());
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void doInquirePost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doInquirePost-");
+		LOG.debug("---------------------------------");
+		
+		//param -> DTO
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("memberNo: "+memberNo);
+		
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		List<MemberPostVO> list = memberService.doInquirePost(member);
+		LOG.debug("-list.size"+list.size());
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void doInquireStorageSave(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doInquireStorageSave-");
+		LOG.debug("---------------------------------");
+		
+		//param -> DTO
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("memberNo: "+memberNo);
+		
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		List<StoreTwoVO> list = memberService.doInquireStorageSave(member);
+		LOG.debug("-list.size"+list.size());
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		request.setAttribute("work_type", "save");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void doInquireStorageLike(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doInquireStorageLike-");
+		LOG.debug("---------------------------------");
+		
+		//param -> DTO
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("memberNo: "+memberNo);
+		
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		List<StoreTwoVO> list = memberService.doInquireStorageLike(member);
+		LOG.debug("-list.size"+list.size());
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		request.setAttribute("work_type", "like");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void doUnfollow(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doUnfollow-");
+		LOG.debug("---------------------------------");
+		
+		int followNo = Integer.parseInt(request.getParameter("fol_num"));
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("followNo: "+followNo);
+		
+		FollowVO follow = new FollowVO(followNo, 0, "", "", "", 0);
+		
+		int flag = memberService.doUnfollow(follow);
+		
+		if(flag == 1) {
+			LOG.debug("---------------------------------");
+			LOG.debug("-----------언팔로우 성공");
+			LOG.debug("---------------------------------");
+		} else {
+			LOG.debug("---------------------------------");
+			LOG.debug("-----------언팔로우 실패");
+			LOG.debug("---------------------------------");
+		}
+		
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		List<FollowVO> list = memberService.doInquireFollowing(member);
+		LOG.debug("-list.size"+list.size());
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("memberInfo", member);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+		
+	}
+	
+	public void doFollow(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doFollow-");
+		LOG.debug("---------------------------------");
+		
+		int followingNo = Integer.parseInt(request.getParameter("following_no"));
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("followNo: "+followingNo);
+		LOG.debug("memberNo: "+memberNo);
+		
+		FollowVO follow = new FollowVO(followingNo, 0, "", "", "", 0);
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		int flag = memberService.doFollow(follow, member);
+		
+		if(flag == 1) {
+			LOG.debug("---------------------------------");
+			LOG.debug("-----------팔로우 성공");
+			LOG.debug("---------------------------------");
+		} else {
+			LOG.debug("---------------------------------");
+			LOG.debug("-----------팔로우 실패");
+			LOG.debug("---------------------------------");
+		}
+		
+		List<FollowVO> list = memberService.doInquireFollowed(member);
+		LOG.debug("-list.size"+list.size());
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("memberInfo", member);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+		
+	}
+	
+	public void login(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----login-");
+		LOG.debug("---------------------------------");
+		
+		int loginMemNo = Integer.parseInt(request.getParameter("login_user"));
+		
+		LOG.debug("-loginMemNo-"+loginMemNo);
+		
+		MemberVO loginMem = new MemberVO(loginMemNo, "", "", "", "", "", "");
+		loginMem = memberService.doSelectOne(loginMem);
+		
+		//세션이름
+		//loginMemInfo -> memberInfo
+		//변경해야함
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("memberInfo", loginMem);
+		
+		RequestDispatcher  dispatcher= request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+
+	public void doChangePw(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		
+		MemberVO member = new MemberVO(memberNo, "", "", "", "", "", "");
+		member = memberService.doSelectOne(member);
+		
+		String name = member.getName();
+		String email = member.getEmail();
+		String location = member.getLocation();
+		String intro = member.getIntro();
+		String reg_dt = member.getReg_dt();
+		
+		String newPw =  request.getParameter("new_pw");
+		
+		LOG.debug(memberNo);
+		LOG.debug(name);
+		LOG.debug(email);
+		LOG.debug(newPw);
+		LOG.debug(location);
+		LOG.debug(intro);
+		LOG.debug(reg_dt);
+		
+		MemberVO updateMember = new MemberVO(memberNo, name, email, newPw, location, intro, reg_dt);
+    	int flag = memberService.doUpdate(updateMember);
+    	
+    	if(flag == 1) {
+    		LOG.debug("비밀번호 변경 성공");
+    	}else if(flag != 1) {
+    		LOG.debug("비밀번호 변경 실패");
+    	}
+	    
+    	request.setAttribute("member_no", memberNo);
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_popup.jsp");
+		dispatcher.forward(request, response);
+	
+	}
+	
+	public void doRegisterProfileImage(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		MemberVO member = new MemberVO(memberNo, "", "", "", "", "", "");
+		member = memberService.doSelectOne(member);
+		LOG.debug("프로필 사진을 삭제한 멤버번호: "+memberNo);
+		
+		int flag = memberService.doDeleteProfileImage(member);
+		
+		if(flag == 1) {
+    		LOG.debug("컨트롤러 -> 프로필 이미지 삭제 성공");
+    		
+    		String fileId = "";
+    		String orgFileNm = "";
+    		String saveFileNm = "";
+    		String path = "";
+    		long size = 0;
+    		String ext = "";
+    		String regDt = "";
+    		
+    		ProfileImageVO image = new ProfileImageVO(fileId, orgFileNm, saveFileNm, path, size, ext, regDt, memberNo);
+    		
+    		int flag2 = memberService.doRegisterProfileImage(image);
+    		
+    		if(flag2 == 1) {
+        		LOG.debug("컨트롤러 -> 프로필 이미지 등록 성공");
+        		
+        	}else if(flag2 != 1) {
+        		LOG.debug("컨트롤러 -> 프로필 이미지 등록 실패");
+        	}
+    		
+    	}else if(flag != 1) {
+    		LOG.debug("컨트롤러 -> 비밀번호 변경 실패");
+    	}
+		
+
+		
+//		MemberVO updateMember = new MemberVO(memberNo, name, email, pw, location, intro, reg_dt);
+//    	MemberServiceTestMain testMain = new MemberServiceTestMain();    
+//	    testMain.doUpdate(updateMember);
+	    	
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+	
+	}
+	
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

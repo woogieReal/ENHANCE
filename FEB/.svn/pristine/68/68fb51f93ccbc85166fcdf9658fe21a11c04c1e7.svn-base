@@ -1,0 +1,86 @@
+/**
+* <pre>
+* com.sist.feb.interest.dao
+* Class Name : InterestJdbcTestMain.java
+* Description:
+* Author: 임하람
+* Since: 2021/03/09
+* Version 0.1
+* Copyright (c) by H.R.LIM All right reserved.
+* Modification Information
+* 수정일   수정자    수정내용
+*-----------------------------------------------------
+*2021/03/09 최초생성
+*-----------------------------------------------------
+* </pre>
+*/
+package com.sist.feb.interest.dao;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.sist.feb.interest.domain.InterestVO;
+
+/**
+ * @author 임하람
+ *
+ */
+public class InterestJdbcTestMain {
+	final static Logger LOG = Logger.getLogger(InterestJdbcTestMain.class);
+
+	//객체선언
+	private InterestDao dao;
+	
+	private InterestVO inter01;
+	
+	public InterestJdbcTestMain() {
+		
+		//생성된 데이터 넣고 테스트
+		inter01 = new InterestVO(3, 1, 4);
+		
+		dao= new InterestDao();
+	}//--생성자
+	
+	
+	
+	public static void main(String[] args) {
+		InterestJdbcTestMain interMain = new InterestJdbcTestMain();
+		//interMain.doSelectOne();
+		interMain.doAllRetrieve();
+
+	}//--main
+	
+	
+	//회원관심분야-단건조회
+	public void doSelectOne() {
+		LOG.debug("inter***doSelectOne()");
+		InterestVO inter =null;
+		inter = dao.doSelectOne(inter01);
+		
+		//------------------------------------
+		if(inter.getInterest_no() != inter01.getInterest_no()
+			||inter.getMember_no() != inter01.getMember_no()
+			||inter.getCategory_seq() != inter01.getCategory_seq()
+			) {
+			LOG.debug("------------");
+			LOG.debug("--카테고리--단건조회실패--");
+			LOG.debug("------------");
+		}else {
+			LOG.debug("★★★★★★★★★★");
+			LOG.debug("★★카테고리★단건조회성공★★");
+			LOG.debug("★★★★★★★★★★");
+		}
+		//------------------------------------
+		
+	}//--doSelectOne
+	
+	// 회원관심분야-모든 분야조회
+	public void doAllRetrieve() {
+		List<InterestVO> resultList = dao.doAllRetrieve(inter01);
+		LOG.debug("doCateRetrieve 건수 :"+resultList.size());
+		
+	}//--doAllRetrieve
+	
+
+}//--class

@@ -1,0 +1,44 @@
+2021-03-18 17:15:27,255 DEBUG [main] service.MemberService (MemberService.java:47)     - =========================================
+2021-03-18 17:15:27,259 DEBUG [main] service.MemberService (MemberService.java:48)     - =MemberService-doSelectOne
+2021-03-18 17:15:27,259 DEBUG [main] service.MemberService (MemberService.java:49)     - =========================================
+2021-03-18 17:15:27,259 DEBUG [main] dao.MemberDao     (MemberDao.java:51)     - 0.param: MemberVO [member_no=1, name=, email=, pw=, location=, intro=, reg_dt=, toString()=com.sist.feb.member.domain.MemberVO@44c8afef]
+2021-03-18 17:15:27,261 DEBUG [main] dao.MemberDao     (MemberDao.java:52)     - doSelectOne 시작
+2021-03-18 17:15:27,391 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-18 17:15:27,819 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@5136d012
+2021-03-18 17:15:27,820 DEBUG [main] dao.MemberDao     (MemberDao.java:64)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@5136d012
+2021-03-18 17:15:27,820 DEBUG [main] dao.MemberDao     (MemberDao.java:77)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT member_no,                              
+	name,                                         
+	email,                                        
+	pw,                                           
+	location,                                     
+	intro,                                        
+	TO_CHAR(reg_dt,'YYYY-MM-DD') reg_dt           
+FROM member                                    
+WHERE member_no = ?                            
+
+2021-03-18 17:15:27,889 DEBUG [main] dao.MemberDao     (MemberDao.java:79)     - 3. PreparedStatement: oracle.jdbc.driver.T4CConnection@5136d012
+2021-03-18 17:15:27,945 DEBUG [main] dao.MemberDao     (MemberDao.java:83)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@1a760689
+2021-03-18 17:15:27,946 DEBUG [main] dao.MemberDao     (MemberDao.java:98)     - member info: MemberVO [member_no=1, name=Mark, email=mark@gamil.com, pw=1234, location=the United States, intro=I'm Mark! this is my second doUpdate., reg_dt=2021-03-04, toString()=com.sist.feb.member.domain.MemberVO@142269f2]
+2021-03-18 17:15:34,355 DEBUG [main] service.MemberService (MemberService.java:47)     - =========================================
+2021-03-18 17:15:34,358 DEBUG [main] service.MemberService (MemberService.java:48)     - =MemberService-doSelectOne
+2021-03-18 17:15:34,358 DEBUG [main] service.MemberService (MemberService.java:49)     - =========================================
+2021-03-18 17:15:34,358 DEBUG [main] dao.MemberDao     (MemberDao.java:51)     - 0.param: MemberVO [member_no=2, name=, email=, pw=, location=, intro=, reg_dt=, toString()=com.sist.feb.member.domain.MemberVO@4923ab24]
+2021-03-18 17:15:34,359 DEBUG [main] dao.MemberDao     (MemberDao.java:52)     - doSelectOne 시작
+2021-03-18 17:15:34,478 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-18 17:15:34,919 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@2beee7ff
+2021-03-18 17:15:34,919 DEBUG [main] dao.MemberDao     (MemberDao.java:64)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@2beee7ff
+2021-03-18 17:15:34,919 DEBUG [main] dao.MemberDao     (MemberDao.java:77)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT member_no,                              
+	name,                                         
+	email,                                        
+	pw,                                           
+	location,                                     
+	intro,                                        
+	TO_CHAR(reg_dt,'YYYY-MM-DD') reg_dt           
+FROM member                                    
+WHERE member_no = ?                            
+
+2021-03-18 17:15:34,987 DEBUG [main] dao.MemberDao     (MemberDao.java:79)     - 3. PreparedStatement: oracle.jdbc.driver.T4CConnection@2beee7ff
+2021-03-18 17:15:35,044 DEBUG [main] dao.MemberDao     (MemberDao.java:83)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@59b38691
+2021-03-18 17:15:35,045 DEBUG [main] dao.MemberDao     (MemberDao.java:98)     - member info: MemberVO [member_no=2, name=Susanc, email=susan@gamil.com, pw=12345, location=England, intro=I'm Susan!, reg_dt=2021-03-04, toString()=com.sist.feb.member.domain.MemberVO@46944ca9]

@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+.entire_div {
+	/* border: 2px solid black; */
+	float: left;
+	margin: 10px;
+	width: 1200px;
+}
+
+.side_div_profile {
+	/* border: 2px solid goldenrod; */
+	float: left;
+	width: 300px;
+	height: 1000px;
+	margin: 10px;
+}
+
+.side_div_main {
+	/* border: 2px solid goldenrod; */
+	float: left;
+	width: 300px;
+	height: 1000px;
+	margin: 10px;
+	margin-left: 40px;
+}
+
+.member_info {
+	/* border-right: 2px solid black; */
+	margin-top: 50px;
+	margin-left: 15px;
+	margin-right: 15px;
+	width: 270px;
+	height: 400px;
+}
+
+.profile_div {
+	/* border: 2px solid red; */
+	float: left;
+	margin: 10px;
+}
+
+.page_title {
+	/* border: 2px solid blue; */
+	float: left;
+	width: 500px;
+	margin: 10px;
+}
+
+.nav_main {
+	/* border: 2px solid blue; */
+	float: left;
+	width: 800px;
+	margin: 10px;
+}
+
+.changed_div {
+	/* border: 2px solid red; */
+	float: left;
+	width: 800px;
+	margin: 10px;
+}
+
+.page_title_name {
+	font-weight: bold;
+}
+
+.list_name {
+	/* border: 1px solid gray; */
+	/* font-weight: bold; */
+	margin: 5px;
+}
+
+.follow_count {
+	display: inline-block;
+	margin: 10px;
+}
+
+.text_box_profile {
+	margin: 5px;
+	padding: 12px;
+	border: 0.1em solid gray;
+	border-radius: 5px;
+	resize: none;
+	width: 400px;
+}
+
+.text_box_main {
+	margin: 5px;
+	padding: 12px;
+	border: 0.1em solid gray;
+	border-radius: 5px;
+	resize: none;
+	width: 200px;
+}
+
+.button {
+	background-color: white;
+	font-weight: bold;
+	border: 0.1em solid gray;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 10px;
+	width: 60px;
+}
+
+.button:hover {
+	background-color: lightskyblue;
+}
+
+#doUpdate_button {
+	margin-left: 320px;
+	/* float: right; */
+	width: 100px;
+}
+
+#edit_profile_button {
+	width: 150px;
+}
+
+.follow_button {
+	float: right;
+	margin: 5px;
+	margin-right: 40px;
+}
+
+.contents_div {
+	float: right;
+	width: 850px;
+	/* border: 2px solid black; */
+}
+
+.foll_info_box {
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.foll_name {
+	font-weight: bold;
+	font-size: 20px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+}
+
+.foll_subInfo {
+	padding-left: 10px;
+}
+
+.nav_main > button {
+	margin: 5px;
+}
+.member_post_box {
+	border: 1px solid red;
+	width: 120px;
+	display: inline-block;
+}

@@ -1,0 +1,250 @@
+package com.sist.feb.member.controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+import com.sist.feb.follow.domain.FollowVO;
+import com.sist.feb.member.domain.MemberVO;
+import com.sist.feb.member.service.MemberService;
+import com.sist.feb.member.test.MemberServiceTestMain;
+import com.sist.feb.storage.domain.MemberPostVO;
+import com.sist.feb.storage.domain.StoreTwoVO;
+
+/**
+ * Servlet implementation class MemberController
+ */
+@WebServlet(description = "멤버", urlPatterns = { "/member/member.do" })
+public class MemberController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	final Logger LOG = Logger.getLogger(MemberController.class);
+	
+	MemberService memberService;
+	
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MemberController() {
+        super();
+        memberService = new MemberService();
+    }
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		//request에 들어오는 encoding을 일괄로 UTF-8로 처리
+		request.setCharacterEncoding("UTF-8");
+		String workType = request.getParameter("work_type");
+		
+		LOG.debug("--------------------------------------");
+		LOG.debug("workType: "+workType);
+		LOG.debug("--------------------------------------");
+		
+		switch(workType) {
+		case "update": doUpdate(request, response); break;
+		case "following": doInquireFollowing(request, response); break;
+		case "followed": doInquireFollowed(request, response); break;
+		case "member_post": doInquirePost(request, response); break;
+		case "save": doInquireStorageSave(request, response); break;
+		case "like": doInquireStorageLike(request, response); break;
+		
+		}
+		
+
+	
+	}
+	
+	public void doSelectOne(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		MemberVO list = memberService.doSelectOne(new MemberVO(1, "Mark", "mark@gamil.com","mark123","america","I'm Mark!","21/03/04"));
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list: ", list);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_profile.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void doUpdate(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String pw = request.getParameter("pw");
+		String location = request.getParameter("location");
+		String intro = request.getParameter("intro");
+		String reg_dt = request.getParameter("reg_dt");
+		
+		LOG.debug(memberNo);
+		LOG.debug(name);
+		LOG.debug(email);
+		LOG.debug(pw);
+		LOG.debug(location);
+		LOG.debug(intro);
+		LOG.debug(reg_dt);
+		
+		MemberVO updateMember = new MemberVO(memberNo, name, email, pw, location, intro, reg_dt);
+    	MemberServiceTestMain testMain = new MemberServiceTestMain();    
+	    testMain.doUpdate(updateMember);
+	    	
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+	
+	}
+	
+	public void doInquireFollowing(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doInquireFollowing-");
+		LOG.debug("---------------------------------");
+		
+		//param -> DTO
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("memberNo: "+memberNo);
+		
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		List<FollowVO> list = memberService.doInquireFollowing(member);
+		LOG.debug("-list.size"+list.size());
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void doInquireFollowed(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doInquireFollowed-");
+		LOG.debug("---------------------------------");
+		
+		//param -> DTO
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("memberNo: "+memberNo);
+		
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		List<FollowVO> list = memberService.doInquireFollowed(member);
+		LOG.debug("-list.size"+list.size());
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void doInquirePost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doInquirePost-");
+		LOG.debug("---------------------------------");
+		
+		//param -> DTO
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("memberNo: "+memberNo);
+		
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		List<MemberPostVO> list = memberService.doInquirePost(member);
+		LOG.debug("-list.size"+list.size());
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void doInquireStorageSave(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doInquireStorageSave-");
+		LOG.debug("---------------------------------");
+		
+		//param -> DTO
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("memberNo: "+memberNo);
+		
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		List<StoreTwoVO> list = memberService.doInquireStorageSave(member);
+		LOG.debug("-list.size"+list.size());
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		request.setAttribute("work_type", "save");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+	
+	public void doInquireStorageLike(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		
+		LOG.debug("---------------------------------");
+		LOG.debug("-MemberController----doInquireStorageLike-");
+		LOG.debug("---------------------------------");
+		
+		//param -> DTO
+		int memberNo = Integer.parseInt(request.getParameter("member_no"));
+		LOG.debug("memberNo: "+memberNo);
+		
+		MemberVO memberTmp = new MemberVO(memberNo, "", "", "", "", "", "" );
+		MemberVO member = memberService.doSelectOne(memberTmp);
+		
+		List<StoreTwoVO> list = memberService.doInquireStorageLike(member);
+		LOG.debug("-list.size"+list.size());
+		LOG.debug("-list"+list);
+		
+		//해당화면에 데이터 전달
+		request.setAttribute("list", list);
+		request.setAttribute("work_type", "like");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/member_main.jsp");
+		dispatcher.forward(request, response);
+		
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

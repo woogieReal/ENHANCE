@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+/* body{
+    margin:0;
+    text-decoration:none;
+	color:black;
+}
+
+a{
+	 text-decoration:none;
+	color:white;
+}
+
+
+ */
+
+ 
+ body{
+ font-family:Roboto; 
+ }
+ 
+ ul{
+ list-style:none;
+ }
+ button,
+ button:focus{
+ border:none;
+ }
+ .info{
+ padding: var(--padding);
+  list-style:none;
+  font-size:20px;
+
+ }
+
+
+ .info .titleAndButton{
+ 	display:flex;
+ }
+.info .titleAndButton .title{
+	font-size: 30px;
+	
+}
+
+.action{
+	display:flex;
+	justify-content: space-around;
+	margin: var(--padding)0;
+	width: 1400px;
+}
+
+.action button{
+	display:flex;
+	background-color:white;
+	flex-direction: column;
+	font-size:20px;
+}
+
+.action button i{
+	background-color:white;
+	margin:0 auto;
+	margin-bottom:20px;
+	
+}
+
+.forecast {
+    margin: 0;
+    padding: .3rem;
+    background-color: #eee;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+.forecast > h1,
+.day-forecast {
+    margin: .5rem;
+    padding: .3rem;
+    font-size: 1.2rem;
+}
+
+.day-forecast {
+    background: right/contain content-box border-box no-repeat
+        url('/media/examples/rain.svg') white;
+}
+
+.day-forecast > h2,
+.day-forecast > p {
+    margin: .2rem;
+    font-size: 1rem;
+}
+

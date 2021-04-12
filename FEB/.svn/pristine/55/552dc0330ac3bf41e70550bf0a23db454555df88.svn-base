@@ -1,0 +1,49 @@
+/**
+* <pre>
+* com.sist.feb.picture.dao
+* Class Name : PictureDao.java
+* Description:
+* Author: 
+* Since: 2021/03/08
+* Version 0.1
+* Copyright (c) by H.R.LIM All right reserved.
+* Modification Information
+* 수정일   수정자    수정내용
+*-----------------------------------------------------
+*2021/03/08 최초생성
+*-----------------------------------------------------
+* </pre>
+*/
+package com.sist.feb.picture.dao;
+
+import org.apache.log4j.Logger;
+
+import com.sist.feb.post.cmn.PostDTO;
+import com.sist.feb.post.dao.PostDao;
+
+/**
+ * @author khy81
+ *
+ */
+public class PictureDao{
+	
+	final Logger LOG = Logger.getLogger(PictureDao.class);
+	
+	// 접속에 필요한 정보로 구성된 문자열(Connecting String)
+	final static String DB_URL = "jdbc:oracle:thin:@211.238.142.124:1521/xe";
+	final static String USER_ID = "feb";
+	final static String USER_PASS = "sistfeb";
+	
+	public PictureDao() {
+		
+	}
+	
+	public int doInsert(PostDTO param) {
+		int flag =0;
+		
+		
+		
+		return flag;
+	}
+
+}

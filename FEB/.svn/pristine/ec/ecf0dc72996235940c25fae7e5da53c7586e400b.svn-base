@@ -1,0 +1,79 @@
+2021-03-08 21:57:06,199 DEBUG [main] dao.CategoryDao   (CategoryDao.java:53)     - doCateRetrieve()
+2021-03-08 21:57:06,212 DEBUG [main] dao.CategoryDao   (CategoryDao.java:54)     - 0.param:CategoryVO [category_seq=1, name=null, toString()=com.sist.feb.category.domain.CategoryVO@7daf6ecc]
+2021-03-08 21:57:06,429 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-08 21:57:08,058 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@100fc185
+2021-03-08 21:57:08,059 DEBUG [main] dao.CategoryDao   (CategoryDao.java:62)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@100fc185
+2021-03-08 21:57:08,060 DEBUG [main] dao.CategoryDao   (CategoryDao.java:71)     - 2.1.쿼리실행 PreparedStatement :SELECT c.category_seq,	
+       c.name         	
+FROM category c       	
+WHERE c.category_seq=?	
+
+2021-03-08 21:57:08,195 DEBUG [main] dao.CategoryDao   (CategoryDao.java:74)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@636be97c
+2021-03-08 21:57:08,283 DEBUG [main] dao.CategoryDao   (CategoryDao.java:81)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@2002fc1d
+2021-03-08 21:57:08,284 DEBUG [main] dao.CategoryDao   (CategoryDao.java:95)     - ******************
+2021-03-08 21:57:08,284 DEBUG [main] dao.CategoryDao   (CategoryDao.java:97)     - CategoryVO [category_seq=1, name=ux/ui, toString()=com.sist.feb.category.domain.CategoryVO@7dc0f706]
+2021-03-08 21:57:08,284 DEBUG [main] dao.CategoryDao   (CategoryDao.java:99)     - *********조회(클릭)건수 :1
+2021-03-08 21:57:08,294 DEBUG [main] test.CategoryJdbcTestMain (CategoryJdbcTestMain.java:61)     - doCateRetrieve 건수 :1
+2021-03-08 21:58:23,463 DEBUG [main] dao.CategoryDao   (CategoryDao.java:53)     - doCateRetrieve()
+2021-03-08 21:58:23,466 DEBUG [main] dao.CategoryDao   (CategoryDao.java:54)     - 0.param:CategoryVO [category_seq=0, name=null, toString()=com.sist.feb.category.domain.CategoryVO@7daf6ecc]
+2021-03-08 21:58:23,629 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-08 21:58:24,966 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@100fc185
+2021-03-08 21:58:24,967 DEBUG [main] dao.CategoryDao   (CategoryDao.java:62)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@100fc185
+2021-03-08 21:58:24,967 DEBUG [main] dao.CategoryDao   (CategoryDao.java:71)     - 2.1.쿼리실행 PreparedStatement :SELECT c.category_seq,	
+       c.name         	
+FROM category c       	
+WHERE c.category_seq=?	
+
+2021-03-08 21:58:25,062 DEBUG [main] dao.CategoryDao   (CategoryDao.java:74)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@636be97c
+2021-03-08 21:58:25,148 DEBUG [main] dao.CategoryDao   (CategoryDao.java:81)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@23348b5d
+2021-03-08 21:58:25,148 DEBUG [main] dao.CategoryDao   (CategoryDao.java:95)     - ******************
+2021-03-08 21:58:25,148 DEBUG [main] dao.CategoryDao   (CategoryDao.java:99)     - *********조회(클릭)건수 :0
+2021-03-08 21:58:25,160 DEBUG [main] test.CategoryJdbcTestMain (CategoryJdbcTestMain.java:60)     - doCateRetrieve 건수 :0
+2021-03-08 22:00:47,221 DEBUG [main] dao.CategoryDao   (CategoryDao.java:53)     - doCateRetrieve()
+2021-03-08 22:00:47,225 DEBUG [main] dao.CategoryDao   (CategoryDao.java:54)     - 0.param:CategoryVO [category_seq=1, name=ux/ui, toString()=com.sist.feb.category.domain.CategoryVO@7daf6ecc]
+2021-03-08 22:00:47,378 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-08 22:00:48,693 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@100fc185
+2021-03-08 22:00:48,694 DEBUG [main] dao.CategoryDao   (CategoryDao.java:62)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@100fc185
+2021-03-08 22:00:48,694 DEBUG [main] dao.CategoryDao   (CategoryDao.java:71)     - 2.1.쿼리실행 PreparedStatement :SELECT c.category_seq,	
+       c.name         	
+FROM category c       	
+WHERE c.category_seq=?	
+
+2021-03-08 22:00:48,787 DEBUG [main] dao.CategoryDao   (CategoryDao.java:74)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@636be97c
+2021-03-08 22:00:48,862 DEBUG [main] dao.CategoryDao   (CategoryDao.java:81)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@2002fc1d
+2021-03-08 22:00:48,863 DEBUG [main] dao.CategoryDao   (CategoryDao.java:95)     - ******************
+2021-03-08 22:00:48,863 DEBUG [main] dao.CategoryDao   (CategoryDao.java:97)     - CategoryVO [category_seq=1, name=ux/ui, toString()=com.sist.feb.category.domain.CategoryVO@7dc0f706]
+2021-03-08 22:00:48,863 DEBUG [main] dao.CategoryDao   (CategoryDao.java:99)     - *********조회(클릭)건수 :1
+2021-03-08 22:00:48,874 DEBUG [main] test.CategoryJdbcTestMain (CategoryJdbcTestMain.java:60)     - doCateRetrieve 건수 :1
+2021-03-08 22:02:04,874 DEBUG [main] dao.CategoryDao   (CategoryDao.java:53)     - doCateRetrieve()
+2021-03-08 22:02:04,878 DEBUG [main] dao.CategoryDao   (CategoryDao.java:54)     - 0.param:CategoryVO [category_seq=2, name=3d art, toString()=com.sist.feb.category.domain.CategoryVO@7daf6ecc]
+2021-03-08 22:02:05,059 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-08 22:02:06,376 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@100fc185
+2021-03-08 22:02:06,377 DEBUG [main] dao.CategoryDao   (CategoryDao.java:62)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@100fc185
+2021-03-08 22:02:06,377 DEBUG [main] dao.CategoryDao   (CategoryDao.java:71)     - 2.1.쿼리실행 PreparedStatement :SELECT c.category_seq,	
+       c.name         	
+FROM category c       	
+WHERE c.category_seq=?	
+
+2021-03-08 22:02:06,498 DEBUG [main] dao.CategoryDao   (CategoryDao.java:74)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@636be97c
+2021-03-08 22:02:06,588 DEBUG [main] dao.CategoryDao   (CategoryDao.java:81)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@2002fc1d
+2021-03-08 22:02:06,589 DEBUG [main] dao.CategoryDao   (CategoryDao.java:95)     - ******************
+2021-03-08 22:02:06,589 DEBUG [main] dao.CategoryDao   (CategoryDao.java:97)     - CategoryVO [category_seq=2, name=3d art, toString()=com.sist.feb.category.domain.CategoryVO@7dc0f706]
+2021-03-08 22:02:06,589 DEBUG [main] dao.CategoryDao   (CategoryDao.java:99)     - *********조회(클릭)건수 :1
+2021-03-08 22:02:06,599 DEBUG [main] test.CategoryJdbcTestMain (CategoryJdbcTestMain.java:60)     - doCateRetrieve 건수 :1
+2021-03-08 22:03:31,590 DEBUG [main] dao.CategoryDao   (CategoryDao.java:53)     - doCateRetrieve()
+2021-03-08 22:03:31,593 DEBUG [main] dao.CategoryDao   (CategoryDao.java:54)     - 0.param:CategoryVO [category_seq=1, name=ux/ui, toString()=com.sist.feb.category.domain.CategoryVO@7daf6ecc]
+2021-03-08 22:03:31,753 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-08 22:03:33,138 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@100fc185
+2021-03-08 22:03:33,139 DEBUG [main] dao.CategoryDao   (CategoryDao.java:62)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@100fc185
+2021-03-08 22:03:33,139 DEBUG [main] dao.CategoryDao   (CategoryDao.java:71)     - 2.1.쿼리실행 PreparedStatement :SELECT c.category_seq,	
+       c.name         	
+FROM category c       	
+WHERE c.category_seq=?	
+
+2021-03-08 22:03:33,259 DEBUG [main] dao.CategoryDao   (CategoryDao.java:74)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@636be97c
+2021-03-08 22:03:33,377 DEBUG [main] dao.CategoryDao   (CategoryDao.java:81)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@2002fc1d
+2021-03-08 22:03:33,379 DEBUG [main] dao.CategoryDao   (CategoryDao.java:95)     - ******************
+2021-03-08 22:03:33,379 DEBUG [main] dao.CategoryDao   (CategoryDao.java:97)     - CategoryVO [category_seq=1, name=ux/ui, toString()=com.sist.feb.category.domain.CategoryVO@7dc0f706]
+2021-03-08 22:03:33,379 DEBUG [main] dao.CategoryDao   (CategoryDao.java:99)     - *********조회(클릭)건수 :1
+2021-03-08 22:03:33,390 DEBUG [main] test.CategoryJdbcTestMain (CategoryJdbcTestMain.java:59)     - doCateRetrieve 건수 :1

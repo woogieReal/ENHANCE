@@ -1,0 +1,184 @@
+
+<%@page import="com.sist.feb.member.domain.MemberVO"%>
+<%@page import="com.sist.feb.category.domain.SearchVO"%>
+<%@page import="com.sist.feb.category.domain.CatePostVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<!-- core -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ include file="/cmn/common.jsp" %>
+<%
+	LOG.debug("cPATH:"+cPath);
+
+	//List<CatePostVO> resultList = (List<CatePostVO>)request.getAttribute("list");
+	//LOG.debug("resultList:"+resultList);
+	
+	//param
+	SearchVO param = (SearchVO)request.getAttribute("param");
+	LOG.debug("param:"+param);
+
+	
+	//호출 URL
+	String url = cPath+"/category/category.do";
+	LOG.debug("url:"+url);
+
+%>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ENHANCE MAIN</title>
+		<!-- header style 가져오기 -->
+		<link href="${pageContext.request.contextPath}/main_css/style.css" rel="stylesheet" type="text/css"/>
+		<!-- bootStrap -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<!-- jQuery -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	
+	</head>
+	<!-- body 부분  -->
+	<body>
+	  
+		<!-- Start of Container -->
+		<div id="wrap container">
+		
+		<!-- header 모양 가져오기 -->
+	  	<jsp:include page="/cmn/header.jsp"></jsp:include>
+	  
+		
+		<!-- Button area -->
+	    <div class="row text-left">
+	    <label class="col-xs-4 col-sm-3 col-md-2 col-lg-2"></label>
+	    	<input type="button" class="btn btn-primary btn-sm" value="조회" onclick="doCateRetrieve();"/>
+	     </div>
+	    <!-- //Button area -->
+
+		<!-- Start of main-select box -->
+			<form action="/FEB/category/category.do"  id="retrieve" name="retrieve" method="get">
+					
+					<!-- hidden -->
+					<input type="hidden" name="cateRetrieve" value="<%=param.getSelectDiv() %>"  />
+					<input type= "hidden" name="work_div"	value="" />
+					<!-- //hidden -->
+					
+					<div class="form-group">
+						<style>
+								select { width: 200px; height: 31px; font-size: 20px; color:#black;
+								border:2px solid #ddd; 
+								}
+						</style>
+						<!-- placeholder="카테고리를 선택하세요"가 안먹음...;;ㅜㅜ -->
+						<label>카테고리 선택</label>
+						<select name="selectDiv" id="selectDiv" onchange="doCateRetrieve();">
+								<option value="">모든 카테고리 조회</option>
+								<option value="ux_ui" <%if(null != param.getSelectDiv() && "ux_ui".equals(param.getSelectDiv())){ out.print("selected");} %>>ux_ui</option>
+								<option value="3d_art" <%if(null != param.getSelectDiv() && "3d_art".equals(param.getSelectDiv())){ out.print("selected");} %>>3d_art</option>
+								<option value="illustration" <%if(null != param.getSelectDiv() && "illustration".equals(param.getSelectDiv())){ out.print("selected");} %>>illustration</option>
+								<option value="graphic" <%if(null != param.getSelectDiv() && "graphic".equals(param.getSelectDiv())){ out.print("selected");} %>>graphic</option>
+								<option value="photography" <%if(null != param.getSelectDiv() && "photography".equals(param.getSelectDiv())){ out.print("selected");} %>>photography</option>
+								<option value="architecture" <%if(null != param.getSelectDiv() && "architecture".equals(param.getSelectDiv())){ out.print("selected");} %>>architecture</option>
+								<option value="product_design" <%if(null != param.getSelectDiv() && "product_design".equals(param.getSelectDiv())){ out.print("selected");} %>>product_design</option>
+								<option value="advertisement" <%if(null != param.getSelectDiv() && "advertisement".equals(param.getSelectDiv())){ out.print("selected");} %>>advertisement</option>
+								<option value="art" <%if(null != param.getSelectDiv() && "art".equals(param.getSelectDiv())){ out.print("selected");} %>>art</option>
+								<option value="fashion" <%if(null != param.getSelectDiv() && "fashion".equals(param.getSelectDiv())){ out.print("selected");} %>>fashion</option>
+						</select>
+					</div>
+							
+		
+			<!-- Start of main-post -->
+			<main id="main_post" class="frame">
+				<!-- ~를 위한 추천 메세지 띄우기 -->
+				<div class="main_page_title">
+					<h2 class="main_page_title_word">
+					<c:choose>
+						<c:when test="${sessionScope.principal eq null }"><!-- 로그인 안했을때 -->
+							당신을 위한 추천
+						</c:when>
+						<c:otherwise><!-- 로그인 했을때 -->
+							${sessionScope.name}님을 위한 추천
+						</c:otherwise>
+					</c:choose>
+					</h2>
+				</div>
+				
+				<div class="main_item_box">
+					<div class="main_post_list">
+					<c:choose>
+						<c:when test="${list.size()>0 }">
+							<c:forEach var="vo" items="${list}">
+									<div class="main_post_box">
+									<a class="link_post" href="${cPath }/post/post.do?work_type=doSelectOne=${vo.postNo}"></a>
+										<img src="${cPath}${vo.path}" class="main_post_item_img"/> <!-- 게시물 이미지 -->
+										<ul class="main_post_item">
+											<li class="member_no" style="display:none;" ><c:out value="${vo.memberNo}"/></li> <!-- 게시한 멤버:추후 hidden으로 숨길예정 -->
+											<li class="name">${vo.name}</li> <!-- 카테고리 분야명-->
+											<li class="title"><c:out value="${vo.title}"/></li> <!-- 제목 -->
+											<li class="readCnt"><c:out value="${vo.readCnt}"/>명이 조회함</li> <!-- 조회수 default = 0 -->
+										</ul>
+									</div>
+								</c:forEach>
+							</c:when>
+						<c:otherwise>
+			     			<ul><li>No data found</li></ul>
+			     		</c:otherwise>
+		     		</c:choose>
+     	
+					</div>
+				</div>
+			</main>
+			<!-- End of main-post -->
+					
+			</form>
+			<!-- End of main-select box  -->
+
+		<!-- footer -->		
+			<jsp:include page="/cmn/footer.jsp" ></jsp:include>
+		<!--// footer -->
+		</div>
+		
+		<!-- End of Container -->
+		 <!--// contents -->
+		
+		
+	 <!-- javascript -->
+    <script type="text/javascript">
+
+	//jquery 객채생성이 완료
+	$(document).ready(function() {
+		console.log("1.document:최초수행!");
+	});//--document ready
+	
+	
+	//카테고리 영역선택 
+
+	 function doCateRetrieve(){
+		
+			console.log("doCateRetrieve");
+			
+			var frm = document.getElementById("retrieve");
+			console.log("frm:"+frm);
+			
+			frm.work_div.value ="doCateRetrieve";
+			console.log("frm.work_div.value:"+frm.work_div.value);
+			
+			frm.submit();
+			
+		
+	 }//--doCateRetrieve
+	
+	 
+
+	$(function(){
+		$("#selectDiv").change(function(){
+			alert("카테고리선택");
+		});
+	});
+	
+    </script>
+    <!--// javascript -->    	
+	</body>
+</html>

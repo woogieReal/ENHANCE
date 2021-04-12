@@ -1,0 +1,146 @@
+2021-03-14 09:20:55,748 DEBUG [main] dao.MemberDao     (MemberDao.java:825)     - 0.param1:FollowVO [followNo=0, followingNo=1, name=null, location=null, followDt=null, theirFollowedCount=0, toString()=com.sist.feb.follow.domain.FollowVO@4abdb505]
+2021-03-14 09:20:55,751 DEBUG [main] dao.MemberDao     (MemberDao.java:826)     - 0.param2:MemberVO [member_no=2, name=null, email=null, pw=null, location=null, intro=null, reg_dt=null, toString()=com.sist.feb.member.domain.MemberVO@5bfbf16f]
+2021-03-14 09:20:55,751 DEBUG [main] dao.MemberDao     (MemberDao.java:827)     - doCheckFollowing
+2021-03-14 09:20:55,875 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-14 09:20:56,468 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@44a7bfbc
+2021-03-14 09:20:56,469 DEBUG [main] dao.MemberDao     (MemberDao.java:846)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT COUNT(*) count   
+FROM follow             
+WHERE FOLLOWING_NO = ?  
+AND FOLLOWED_NO = ?     
+
+2021-03-14 09:20:56,594 DEBUG [main] dao.MemberDao     (MemberDao.java:853)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@2f1de2d6
+2021-03-14 09:20:56,594 DEBUG [main] dao.MemberDao     (MemberDao.java:859)     - count: 1
+2021-03-14 09:20:56,613 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:227)     - ★★★★★★★★★★★★★★★★★★
+2021-03-14 09:20:56,613 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:228)     -  맞팔 중
+2021-03-14 09:20:56,613 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:229)     - ★★★★★★★★★★★★★★★★★★
+2021-03-14 09:21:08,343 DEBUG [main] dao.MemberDao     (MemberDao.java:825)     - 0.param1:FollowVO [followNo=0, followingNo=1, name=null, location=null, followDt=null, theirFollowedCount=0, toString()=com.sist.feb.follow.domain.FollowVO@4abdb505]
+2021-03-14 09:21:08,345 DEBUG [main] dao.MemberDao     (MemberDao.java:826)     - 0.param2:MemberVO [member_no=2, name=null, email=null, pw=null, location=null, intro=null, reg_dt=null, toString()=com.sist.feb.member.domain.MemberVO@59906517]
+2021-03-14 09:21:08,345 DEBUG [main] dao.MemberDao     (MemberDao.java:827)     - doCheckFollowing
+2021-03-14 09:21:08,470 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-14 09:21:09,008 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@152aa092
+2021-03-14 09:21:09,008 DEBUG [main] dao.MemberDao     (MemberDao.java:846)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT COUNT(*) count   
+FROM follow             
+WHERE FOLLOWING_NO = ?  
+AND FOLLOWED_NO = ?     
+
+2021-03-14 09:21:09,133 DEBUG [main] dao.MemberDao     (MemberDao.java:853)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@4c51cf28
+2021-03-14 09:21:09,133 DEBUG [main] dao.MemberDao     (MemberDao.java:859)     - count: 1
+2021-03-14 09:21:09,150 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:227)     - ★★★★★★★★★★★★★★★★★★
+2021-03-14 09:21:09,150 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:228)     -  맞팔 중
+2021-03-14 09:21:09,150 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:229)     - ★★★★★★★★★★★★★★★★★★
+2021-03-14 09:21:20,763 DEBUG [main] dao.MemberDao     (MemberDao.java:825)     - 0.param1:FollowVO [followNo=0, followingNo=44, name=null, location=null, followDt=null, theirFollowedCount=0, toString()=com.sist.feb.follow.domain.FollowVO@4abdb505]
+2021-03-14 09:21:20,765 DEBUG [main] dao.MemberDao     (MemberDao.java:826)     - 0.param2:MemberVO [member_no=1, name=null, email=null, pw=null, location=null, intro=null, reg_dt=null, toString()=com.sist.feb.member.domain.MemberVO@59906517]
+2021-03-14 09:21:20,766 DEBUG [main] dao.MemberDao     (MemberDao.java:827)     - doCheckFollowing
+2021-03-14 09:21:20,886 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-14 09:21:21,433 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@152aa092
+2021-03-14 09:21:21,434 DEBUG [main] dao.MemberDao     (MemberDao.java:846)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT COUNT(*) count   
+FROM follow             
+WHERE FOLLOWING_NO = ?  
+AND FOLLOWED_NO = ?     
+
+2021-03-14 09:21:21,558 DEBUG [main] dao.MemberDao     (MemberDao.java:853)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@5a18cd76
+2021-03-14 09:21:21,559 DEBUG [main] dao.MemberDao     (MemberDao.java:859)     - count: 1
+2021-03-14 09:21:21,576 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:227)     - ★★★★★★★★★★★★★★★★★★
+2021-03-14 09:21:21,576 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:228)     -  맞팔 중
+2021-03-14 09:21:21,576 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:229)     - ★★★★★★★★★★★★★★★★★★
+2021-03-14 09:21:44,390 DEBUG [main] dao.MemberDao     (MemberDao.java:825)     - 0.param1:FollowVO [followNo=0, followingNo=43, name=null, location=null, followDt=null, theirFollowedCount=0, toString()=com.sist.feb.follow.domain.FollowVO@4abdb505]
+2021-03-14 09:21:44,393 DEBUG [main] dao.MemberDao     (MemberDao.java:826)     - 0.param2:MemberVO [member_no=1, name=null, email=null, pw=null, location=null, intro=null, reg_dt=null, toString()=com.sist.feb.member.domain.MemberVO@59906517]
+2021-03-14 09:21:44,393 DEBUG [main] dao.MemberDao     (MemberDao.java:827)     - doCheckFollowing
+2021-03-14 09:21:44,518 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-14 09:21:45,058 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@152aa092
+2021-03-14 09:21:45,058 DEBUG [main] dao.MemberDao     (MemberDao.java:846)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT COUNT(*) count   
+FROM follow             
+WHERE FOLLOWING_NO = ?  
+AND FOLLOWED_NO = ?     
+
+2021-03-14 09:21:45,182 DEBUG [main] dao.MemberDao     (MemberDao.java:853)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@3da30852
+2021-03-14 09:21:45,182 DEBUG [main] dao.MemberDao     (MemberDao.java:859)     - count: 0
+2021-03-14 09:21:45,199 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:231)     - xxxxxxxxxxxxxxxxxxxxxx
+2021-03-14 09:21:45,200 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:232)     -  맞팔 아님
+2021-03-14 09:21:45,200 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:233)     - xxxxxxxxxxxxxxxxxxxxxx
+2021-03-14 09:21:50,743 DEBUG [main] dao.MemberDao     (MemberDao.java:825)     - 0.param1:FollowVO [followNo=0, followingNo=42, name=null, location=null, followDt=null, theirFollowedCount=0, toString()=com.sist.feb.follow.domain.FollowVO@4abdb505]
+2021-03-14 09:21:50,746 DEBUG [main] dao.MemberDao     (MemberDao.java:826)     - 0.param2:MemberVO [member_no=1, name=null, email=null, pw=null, location=null, intro=null, reg_dt=null, toString()=com.sist.feb.member.domain.MemberVO@59906517]
+2021-03-14 09:21:50,746 DEBUG [main] dao.MemberDao     (MemberDao.java:827)     - doCheckFollowing
+2021-03-14 09:21:50,868 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-14 09:21:51,404 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@152aa092
+2021-03-14 09:21:51,405 DEBUG [main] dao.MemberDao     (MemberDao.java:846)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT COUNT(*) count   
+FROM follow             
+WHERE FOLLOWING_NO = ?  
+AND FOLLOWED_NO = ?     
+
+2021-03-14 09:21:51,525 DEBUG [main] dao.MemberDao     (MemberDao.java:853)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@5a18cd76
+2021-03-14 09:21:51,526 DEBUG [main] dao.MemberDao     (MemberDao.java:859)     - count: 0
+2021-03-14 09:21:51,542 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:231)     - xxxxxxxxxxxxxxxxxxxxxx
+2021-03-14 09:21:51,542 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:232)     -  맞팔 아님
+2021-03-14 09:21:51,542 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:233)     - xxxxxxxxxxxxxxxxxxxxxx
+2021-03-14 09:22:06,640 DEBUG [main] dao.MemberDao     (MemberDao.java:825)     - 0.param1:FollowVO [followNo=0, followingNo=123, name=null, location=null, followDt=null, theirFollowedCount=0, toString()=com.sist.feb.follow.domain.FollowVO@4abdb505]
+2021-03-14 09:22:06,643 DEBUG [main] dao.MemberDao     (MemberDao.java:826)     - 0.param2:MemberVO [member_no=2, name=null, email=null, pw=null, location=null, intro=null, reg_dt=null, toString()=com.sist.feb.member.domain.MemberVO@59906517]
+2021-03-14 09:22:06,643 DEBUG [main] dao.MemberDao     (MemberDao.java:827)     - doCheckFollowing
+2021-03-14 09:22:06,765 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-14 09:22:07,321 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@152aa092
+2021-03-14 09:22:07,321 DEBUG [main] dao.MemberDao     (MemberDao.java:846)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT COUNT(*) count   
+FROM follow             
+WHERE FOLLOWING_NO = ?  
+AND FOLLOWED_NO = ?     
+
+2021-03-14 09:22:07,443 DEBUG [main] dao.MemberDao     (MemberDao.java:853)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@4c51cf28
+2021-03-14 09:22:07,443 DEBUG [main] dao.MemberDao     (MemberDao.java:859)     - count: 0
+2021-03-14 09:22:07,462 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:231)     - xxxxxxxxxxxxxxxxxxxxxx
+2021-03-14 09:22:07,462 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:232)     -  맞팔 아님
+2021-03-14 09:22:07,462 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:233)     - xxxxxxxxxxxxxxxxxxxxxx
+2021-03-14 09:22:34,123 DEBUG [main] dao.MemberDao     (MemberDao.java:825)     - 0.param1:FollowVO [followNo=0, followingNo=5, name=null, location=null, followDt=null, theirFollowedCount=0, toString()=com.sist.feb.follow.domain.FollowVO@4abdb505]
+2021-03-14 09:22:34,126 DEBUG [main] dao.MemberDao     (MemberDao.java:826)     - 0.param2:MemberVO [member_no=44, name=null, email=null, pw=null, location=null, intro=null, reg_dt=null, toString()=com.sist.feb.member.domain.MemberVO@59906517]
+2021-03-14 09:22:34,126 DEBUG [main] dao.MemberDao     (MemberDao.java:827)     - doCheckFollowing
+2021-03-14 09:22:34,245 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-14 09:22:34,770 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@152aa092
+2021-03-14 09:22:34,770 DEBUG [main] dao.MemberDao     (MemberDao.java:846)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT COUNT(*) count   
+FROM follow             
+WHERE FOLLOWING_NO = ?  
+AND FOLLOWED_NO = ?     
+
+2021-03-14 09:22:34,896 DEBUG [main] dao.MemberDao     (MemberDao.java:853)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@79179359
+2021-03-14 09:22:34,896 DEBUG [main] dao.MemberDao     (MemberDao.java:859)     - count: 1
+2021-03-14 09:22:34,913 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:227)     - ★★★★★★★★★★★★★★★★★★
+2021-03-14 09:22:34,914 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:228)     -  맞팔 중
+2021-03-14 09:22:34,914 DEBUG [main] test.MemberJdbcTestMain (MemberJdbcTestMain.java:229)     - ★★★★★★★★★★★★★★★★★★
+2021-03-14 09:24:30,364 DEBUG [main] test.MemberServiceTestMain (MemberServiceTestMain.java:170)     - ================================
+2021-03-14 09:24:30,367 DEBUG [main] test.MemberServiceTestMain (MemberServiceTestMain.java:171)     - =MemberServiceTestMain---doCheckFollowing=
+2021-03-14 09:24:30,367 DEBUG [main] test.MemberServiceTestMain (MemberServiceTestMain.java:172)     - ================================
+2021-03-14 09:24:30,367 DEBUG [main] dao.MemberDao     (MemberDao.java:825)     - 0.param1:FollowVO [followNo=3, followingNo=2, name=, location=, followDt=, theirFollowedCount=1, toString()=com.sist.feb.follow.domain.FollowVO@59906517]
+2021-03-14 09:24:30,367 DEBUG [main] dao.MemberDao     (MemberDao.java:826)     - 0.param2:MemberVO [member_no=1, name=, email=, pw=, location=, intro=, reg_dt=, toString()=com.sist.feb.member.domain.MemberVO@5bfbf16f]
+2021-03-14 09:24:30,369 DEBUG [main] dao.MemberDao     (MemberDao.java:827)     - doCheckFollowing
+2021-03-14 09:24:30,487 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-14 09:24:31,021 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@44a7bfbc
+2021-03-14 09:24:31,021 DEBUG [main] dao.MemberDao     (MemberDao.java:846)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT COUNT(*) count   
+FROM follow             
+WHERE FOLLOWING_NO = ?  
+AND FOLLOWED_NO = ?     
+
+2021-03-14 09:24:31,148 DEBUG [main] dao.MemberDao     (MemberDao.java:853)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@dbd8e44
+2021-03-14 09:24:31,148 DEBUG [main] dao.MemberDao     (MemberDao.java:859)     - count: 1
+2021-03-14 09:24:31,167 DEBUG [main] test.MemberServiceTestMain (MemberServiceTestMain.java:175)     - result: 1
+2021-03-14 09:24:38,480 DEBUG [main] test.MemberServiceTestMain (MemberServiceTestMain.java:170)     - ================================
+2021-03-14 09:24:38,482 DEBUG [main] test.MemberServiceTestMain (MemberServiceTestMain.java:171)     - =MemberServiceTestMain---doCheckFollowing=
+2021-03-14 09:24:38,482 DEBUG [main] test.MemberServiceTestMain (MemberServiceTestMain.java:172)     - ================================
+2021-03-14 09:24:38,482 DEBUG [main] dao.MemberDao     (MemberDao.java:825)     - 0.param1:FollowVO [followNo=3, followingNo=33, name=, location=, followDt=, theirFollowedCount=1, toString()=com.sist.feb.follow.domain.FollowVO@59906517]
+2021-03-14 09:24:38,483 DEBUG [main] dao.MemberDao     (MemberDao.java:826)     - 0.param2:MemberVO [member_no=1, name=, email=, pw=, location=, intro=, reg_dt=, toString()=com.sist.feb.member.domain.MemberVO@5bfbf16f]
+2021-03-14 09:24:38,484 DEBUG [main] dao.MemberDao     (MemberDao.java:827)     - doCheckFollowing
+2021-03-14 09:24:38,604 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-14 09:24:39,131 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@44a7bfbc
+2021-03-14 09:24:39,131 DEBUG [main] dao.MemberDao     (MemberDao.java:846)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT COUNT(*) count   
+FROM follow             
+WHERE FOLLOWING_NO = ?  
+AND FOLLOWED_NO = ?     
+
+2021-03-14 09:24:39,256 DEBUG [main] dao.MemberDao     (MemberDao.java:853)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@79517588
+2021-03-14 09:24:39,256 DEBUG [main] dao.MemberDao     (MemberDao.java:859)     - count: 0
+2021-03-14 09:24:39,276 DEBUG [main] test.MemberServiceTestMain (MemberServiceTestMain.java:175)     - result: 0

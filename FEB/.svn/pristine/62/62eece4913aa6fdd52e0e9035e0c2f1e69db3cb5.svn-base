@@ -1,0 +1,69 @@
+/**
+* <pre>
+* com.sist.feb.interest.domain
+* Class Name : InterestVO.java
+* Description:
+* Author: 123wo
+* Since: 2021/03/07
+* Version 0.1
+* Copyright (c) by H.R.KIM All right reserved.
+* Modification Information
+* 수정일   수정자    수정내용
+*-----------------------------------------------------
+*2021/03/07 최초생성
+*-----------------------------------------------------
+* </pre>
+*/
+package com.sist.feb.interest.domain;
+
+import com.sist.feb.member.cmn.DTO;
+
+public class InterestVO extends DTO{
+	
+	private int interest_no; 
+	private int member_no; 
+	private int category_seq;
+	
+	public InterestVO() {
+		
+	}
+
+	public InterestVO(int interest_no, int member_no, int category_seq) {
+		super();
+		this.interest_no = interest_no;
+		this.member_no = member_no;
+		this.category_seq = category_seq;
+	}
+
+	public int getInterest_no() {
+		return interest_no;
+	}
+
+	public void setInterest_no(int interest_no) {
+		this.interest_no = interest_no;
+	}
+
+	public int getMember_no() {
+		return member_no;
+	}
+
+	public void setMember_no(int member_no) {
+		this.member_no = member_no;
+	}
+
+	public int getCategory_seq() {
+		return category_seq;
+	}
+
+	public void setCategory_seq(int category_seq) {
+		this.category_seq = category_seq;
+	}
+
+	@Override
+	public String toString() {
+		return "InterestVO [interest_no=" + interest_no + ", member_no=" + member_no + ", category_seq=" + category_seq
+				+ ", toString()=" + super.toString() + "]";
+	}
+	
+	
+}

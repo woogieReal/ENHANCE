@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+body{
+    margin:0;
+    text-decoration:none;
+	color:white;
+}
+
+a{
+	 text-decoration:none;
+	color:white;
+}
+
+.navbar{
+
+	justfy-content:space-between;
+    display: flex;
+    align-items: center;
+    background-color: #263343;
+    padding: 8px 12px;
+}
+.navbar_logo{
+	font-size:24px;
+	color:white;
+}
+
+.navbar_logo i{
+	color:#d49466;
+}
+
+.navbar_menu{
+	display:flex;
+	list-style:none;
+	padding-left:0;
+	margin-top: 20px;/* 추가함 */
+	float :left;
+}
+
+.navbar_menu li{
+	padding:8px 12px;
+}
+.navbar_menu li:hover{
+	background-color:#d49466;
+	border-radius:4px;
+}
+.navbar_icons{
+	list-style:none;
+	color:white;
+	display:flex;
+	margin-top: 20px;/* 추가함 */
+}
+.navbar_icons li{
+	padding: 5px 12px;
+}
+

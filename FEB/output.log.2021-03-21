@@ -1,0 +1,50 @@
+2021-03-21 20:17:28,637 DEBUG [main] dao.PostDao       ( PostDao.java:442)     - doInquireCurrval
+2021-03-21 20:17:28,768 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-21 20:17:29,176 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@2892dae4
+2021-03-21 20:17:29,176 DEBUG [main] dao.PostDao       ( PostDao.java:457)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT IMAGE_SEQ.CURRVAL FROM DUAL
+2021-03-21 20:17:29,247 DEBUG [main] dao.PostDao       ( PostDao.java:471)     - doInquireCurrval:  ORA-08002: sequence IMAGE_SEQ.CURRVAL is not yet defined in this session
+
+2021-03-21 20:17:29,250 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:140)     - ==============================
+2021-03-21 20:17:29,250 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:141)     - result: 0
+2021-03-21 20:17:29,250 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:142)     - ==============================
+2021-03-21 20:19:26,543 DEBUG [main] dao.PostDao       ( PostDao.java:442)     - doInquireCurrval
+2021-03-21 20:19:26,668 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-21 20:19:27,080 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@13b13b5d
+2021-03-21 20:19:27,081 DEBUG [main] dao.PostDao       ( PostDao.java:457)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT IMAGE_SEQ.NEXTVAL FROM DUAL
+2021-03-21 20:19:27,194 DEBUG [main] dao.PostDao       ( PostDao.java:461)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@62ef27a8
+2021-03-21 20:19:27,195 DEBUG [main] dao.PostDao       ( PostDao.java:471)     - doInquireCurrval:  부적합한 열 이름
+2021-03-21 20:19:27,197 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:140)     - ==============================
+2021-03-21 20:19:27,197 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:141)     - result: 0
+2021-03-21 20:19:27,197 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:142)     - ==============================
+2021-03-21 20:19:51,873 DEBUG [main] dao.PostDao       ( PostDao.java:442)     - doInquireCurrval
+2021-03-21 20:19:52,001 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-21 20:19:52,416 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@13b13b5d
+2021-03-21 20:19:52,416 DEBUG [main] dao.PostDao       ( PostDao.java:457)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT IMAGE_SEQ.NEXTVAL FROM DUAL
+2021-03-21 20:19:52,533 DEBUG [main] dao.PostDao       ( PostDao.java:461)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@6138e79a
+2021-03-21 20:19:52,533 DEBUG [main] dao.PostDao       ( PostDao.java:467)     - count: 212
+2021-03-21 20:19:52,535 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:140)     - ==============================
+2021-03-21 20:19:52,536 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:141)     - result: 212
+2021-03-21 20:19:52,536 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:142)     - ==============================
+2021-03-21 20:20:36,275 DEBUG [main] dao.PostDao       ( PostDao.java:442)     - doInquireCurrval
+2021-03-21 20:20:36,397 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-21 20:20:36,803 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@13b13b5d
+2021-03-21 20:20:36,803 DEBUG [main] dao.PostDao       ( PostDao.java:457)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT IMAGE_SEQ.NEXTVAL FROM DUAL
+2021-03-21 20:20:36,916 DEBUG [main] dao.PostDao       ( PostDao.java:461)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@47f9738
+2021-03-21 20:20:36,917 DEBUG [main] dao.PostDao       ( PostDao.java:467)     - count: 214
+2021-03-21 20:20:36,918 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:140)     - ==============================
+2021-03-21 20:20:36,919 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:141)     - result: 214
+2021-03-21 20:20:36,919 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:142)     - ==============================
+2021-03-21 20:24:23,711 DEBUG [main] dao.PostDao       ( PostDao.java:442)     - doInquireCurrval
+2021-03-21 20:24:23,837 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-21 20:24:24,246 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@13b13b5d
+2021-03-21 20:24:24,246 DEBUG [main] dao.PostDao       ( PostDao.java:457)     - 2.1. 쿼리 실행 PreparedStatement: 
+SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'IMAGE_SEQ'
+2021-03-21 20:24:24,366 DEBUG [main] dao.PostDao       ( PostDao.java:461)     - 3.1 ResultSet: oracle.jdbc.driver.ForwardOnlyResultSet@21a21c64
+2021-03-21 20:24:24,367 DEBUG [main] dao.PostDao       ( PostDao.java:467)     - count: 217
+2021-03-21 20:24:24,369 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:140)     - ==============================
+2021-03-21 20:24:24,369 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:141)     - result: 217
+2021-03-21 20:24:24,369 DEBUG [main] test.PostJdbcTestMain (PostJdbcTestMain.java:142)     - ==============================

@@ -1,0 +1,487 @@
+/**
+* <pre>
+* com.sist.feb.member.dao
+* Class Name : MemberDao.java
+* Description: 
+* Author: 김재욱
+* Since: 2021/03/05
+* Version 0.1
+* Copyright (c) by H.R.KIM All right reserved.
+* Modification Information
+* 수정일   수정자    수정내용
+*-----------------------------------------------------
+*2021/03/05 최초생성
+*-----------------------------------------------------
+* </pre>
+*/
+package com.sist.feb.member.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.sist.feb.follow.domain.FollowVO;
+import com.sist.feb.member.cmn.ConnectionMaker;
+import com.sist.feb.member.cmn.DTO;
+import com.sist.feb.member.cmn.JDBCUtil;
+import com.sist.feb.member.cmn.WorkStandard;
+import com.sist.feb.member.domain.MemberVO;
+import com.sist.feb.storage.domain.MemberPostVO;
+
+public class MemberDao implements WorkStandard{
+	
+	final Logger LOG = Logger.getLogger(MemberDao.class);
+	
+	public MemberDao() {
+		
+	}
+	
+	@Override
+	public MemberVO doSelectOne(DTO param) {
+		MemberVO member = null;
+		
+		MemberVO inVO = (MemberVO) param;
+		LOG.debug("0.param: "+inVO);
+		LOG.debug("doSelectOne 시작");
+		
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		
+		//Return Value 처리
+		ResultSet rs = null;
+		
+		try {
+			
+			connection = ConnectionMaker.getConnection();
+			connection.setAutoCommit(false);
+			LOG.debug("2.데이터베이스 커넥션 구함 "+connection);
+			
+			StringBuffer sb = new StringBuffer(500);
+			sb.append("SELECT member_no,                              \n");
+			sb.append("	name,                                         \n");
+			sb.append("	email,                                        \n");
+			sb.append("	pw,                                           \n");
+			sb.append("	location,                                     \n");
+			sb.append("	intro,                                        \n");
+			sb.append("	TO_CHAR(reg_dt,'YYYY-MM-DD HH24:MI:SS') reg_dt\n");
+			sb.append("FROM member                                    \n");
+			sb.append("WHERE member_no = ?                            \n");
+			
+			LOG.debug("2.1. 쿼리 실행 PreparedStatement: \n" + sb.toString());
+			pstmt = connection.prepareStatement(sb.toString());
+			LOG.debug("3. PreparedStatement: " + connection);
+			pstmt.setInt(1, inVO.getMember_no());
+			
+			rs = pstmt.executeQuery();
+			LOG.debug("3.1 ResultSet: " + rs);
+			
+			if(rs.next() == true) {
+				member = new MemberVO();
+				
+				member.setMember_no(rs.getInt("member_no"));
+				member.setName(rs.getString("name"));
+				member.setEmail(rs.getString("email"));
+				member.setPw(rs.getString("pw"));
+				member.setLocation(rs.getString("location"));
+				member.setIntro(rs.getString("intro"));
+				member.setReg_dt(rs.getString("reg_dt"));
+			
+			}
+			
+			LOG.debug("member info: " + member);
+			connection.commit();
+			
+			
+		} catch(SQLException e) {
+			LOG.debug("doSelectOne: "+e.getMessage());
+			e.printStackTrace();
+		} finally {
+			
+			JDBCUtil.close(rs);
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+			
+		} //--finally
+		
+		return member;
+		
+		
+	} //--doSelectOne()
+
+	public int doUpdate(DTO param) {
+		int flag = 0;
+		MemberVO inVO = (MemberVO) param;
+		
+		LOG.debug("doUpdate");
+		LOG.debug("0.param:" + inVO);
+		
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			connection = ConnectionMaker.getConnection();
+			connection.setAutoCommit(false);
+			
+			StringBuffer sb = new StringBuffer(1000);
+			
+			sb.append("UPDATE member        \n");
+			sb.append("SET                  \n");
+			sb.append("name = ?,            \n");
+			sb.append("location = ?,        \n");
+			sb.append("intro = ?            \n");
+			sb.append("WHERE member_no = ?  \n");
+			
+			pstmt = connection.prepareStatement(sb.toString());
+			
+			pstmt.setString(1, inVO.getName());
+			pstmt.setString(2, inVO.getLocation());
+			pstmt.setString(3, inVO.getIntro());
+			pstmt.setInt(4, inVO.getMember_no());
+			
+			flag = pstmt.executeUpdate();
+			LOG.debug("4. 쿼리 수행: " + flag);
+			
+			connection.commit();
+			
+		} catch(SQLException e) {
+			LOG.debug("doUpdate:  "+e.getMessage());
+			e.printStackTrace();
+		} finally {
+			
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+			
+		}
+		
+		return flag;
+	}
+
+	public int doCountMyFollowing(DTO param) {
+		int count = 0;
+		MemberVO inVO = (MemberVO) param;
+		
+		LOG.debug("0.param:" + inVO);
+		LOG.debug("doCountMyFollowing");
+		
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		
+		ResultSet rs = null;
+		
+		try {
+			
+			connection = ConnectionMaker.getConnection();
+			connection.setAutoCommit(false);
+			
+			StringBuffer sb = new StringBuffer(500);
+			
+			sb.append("SELECT COUNT(*) MY_FOLLOWING_COUNT \n");
+			sb.append("FROM FOLLOW                        \n");
+			sb.append("WHERE FOLLOWED_NO = ?              \n");
+			
+			LOG.debug("2.1. 쿼리 실행 PreparedStatement: \n" + sb.toString());
+			pstmt = connection.prepareStatement(sb.toString());
+
+			pstmt.setInt(1, inVO.getMember_no());
+
+			rs = pstmt.executeQuery();
+			LOG.debug("3.1 ResultSet: " + rs);
+			
+			if(rs.next() == true) {
+				count = rs.getInt("MY_FOLLOWING_COUNT");
+			}
+			
+			LOG.debug("count: " + count);
+			connection.commit();
+			
+		} catch(SQLException e) {
+			LOG.debug("doCountMyFollowed:  "+e.getMessage());
+			e.printStackTrace();
+		} finally {
+			
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+			
+		}
+		
+		return count;
+	}
+	
+	public int doCountMyFollowed(DTO param) {
+		int count = 0;
+		MemberVO inVO = (MemberVO) param;
+		
+		LOG.debug("0.param:" + inVO);
+		LOG.debug("doCountMyFollowing");
+		
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		
+		ResultSet rs = null;
+		
+		try {
+			
+			connection = ConnectionMaker.getConnection();
+			connection.setAutoCommit(false);
+			
+			StringBuffer sb = new StringBuffer(500);
+			
+			sb.append("SELECT COUNT(*) MY_FOLLOWED_COUNT \n");
+			sb.append("FROM FOLLOW                        \n");
+			sb.append("WHERE FOLLOWING_NO = ?              \n");
+			
+			LOG.debug("2.1. 쿼리 실행 PreparedStatement: \n" + sb.toString());
+			pstmt = connection.prepareStatement(sb.toString());
+
+			pstmt.setInt(1, inVO.getMember_no());
+
+			rs = pstmt.executeQuery();
+			LOG.debug("3.1 ResultSet: " + rs);
+			
+			if(rs.next() == true) {
+				count = rs.getInt("MY_FOLLOWED_COUNT");
+			}
+			
+			LOG.debug("count: " + count);
+			connection.commit();
+			
+		} catch(SQLException e) {
+			LOG.debug("doCountMyFollowed:  "+e.getMessage());
+			e.printStackTrace();
+		} finally {
+			
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+			
+		}
+		
+		return count;
+	}
+	
+	public List<FollowVO> doInquireFollowing(DTO param){
+		List<FollowVO> list = new ArrayList<FollowVO>();
+		
+		MemberVO inVO = (MemberVO) param;
+		
+		LOG.debug("0.param: "+inVO);
+		LOG.debug("doInquireFollowing 시작");
+		
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		
+		//Return Value 처리
+		ResultSet rs = null;
+		
+		try {
+			connection = ConnectionMaker.getConnection();
+			connection.setAutoCommit(false);
+			LOG.debug("2.데이터베이스 커넥션 구함 "+connection);
+			
+			StringBuffer sb = new StringBuffer(2000);
+			
+			sb.append("SELECT T2.FOLLOWING_NO,                          \n");
+			sb.append("    T1.NAME,                                     \n");
+			sb.append("    T1.LOCATION,                                 \n");
+			sb.append("    TO_CHAR(T2.FOLLOW_DT,'YYYY-MM-DD') FOLLOW_DT,\n");
+			sb.append("    (                                            \n");
+			sb.append("        SELECT COUNT(*)                          \n");
+			sb.append("        FROM FOLLOW T3                           \n");
+			sb.append("        WHERE T2.FOLLOWING_NO = T3.FOLLOWING_NO  \n");
+			sb.append("    )THEIR_FOLLOWED_COUNT                        \n");
+			sb.append("FROM MEMBER T1, FOLLOW T2                        \n");
+			sb.append("WHERE T1.MEMBER_NO = T2.FOLLOWING_NO             \n");
+			sb.append("AND T2.FOLLOWED_NO = ?                           \n");
+			
+			LOG.debug(sb.toString());
+			pstmt = connection.prepareStatement(sb.toString());
+			LOG.debug("3. PreparedStatement: " + connection);
+			
+			pstmt.setInt(1, inVO.getMember_no());
+			
+			rs = pstmt.executeQuery();
+			LOG.debug("3.1 ResultSet: " + rs);
+			
+			while(rs.next() == true) {
+				
+				FollowVO follow = new FollowVO();
+				
+				follow.setFollowingNo(rs.getInt("FOLLOWING_NO"));
+				follow.setName(rs.getString("NAME"));
+				follow.setLocation(rs.getString("LOCATION"));
+				follow.setFollowDt(rs.getString("FOLLOW_DT"));
+				follow.setTheirFollowedCount(rs.getInt("THEIR_FOLLOWED_COUNT"));
+				
+				list.add(follow);
+			}
+			
+			for(FollowVO vo : list) {
+				LOG.debug(vo);
+			}
+			LOG.debug("=================조회건수"+list.size());
+			
+			connection.commit();
+			
+		}  catch(SQLException e) {
+			LOG.debug("doInquireFollowing: "+e.getMessage());
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs);
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+		}
+		
+		return list;
+	}
+	
+	public List<FollowVO> doInquireFollowed(DTO param){
+		List<FollowVO> list = new ArrayList<FollowVO>();
+		
+		MemberVO inVO = (MemberVO) param;
+		
+		LOG.debug("0.param: "+inVO);
+		LOG.debug("doInquireFollowed 시작");
+		
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		
+		//Return Value 처리
+		ResultSet rs = null;
+		
+		try {
+			connection = ConnectionMaker.getConnection();
+			connection.setAutoCommit(false);
+			LOG.debug("2.데이터베이스 커넥션 구함 "+connection);
+			
+			StringBuffer sb = new StringBuffer(2000);
+			
+			sb.append("SELECT T2.FOLLOWED_NO,                            \n");
+			sb.append("    T1.NAME,                                      \n");
+			sb.append("    T1.LOCATION,                                  \n");
+			sb.append("    TO_CHAR(T2.FOLLOW_DT,'YYYY-MM-DD') FOLLOW_DT, \n");
+			sb.append("    (                                             \n");
+			sb.append("        SELECT COUNT(*)                           \n");
+			sb.append("        FROM FOLLOW T3                            \n");
+			sb.append("        WHERE T2.FOLLOWED_NO = T3.FOLLOWING_NO    \n");
+			sb.append("    )THEIR_FOLLOWED_COUNT                         \n");
+			sb.append("FROM MEMBER T1, FOLLOW T2                         \n");
+			sb.append("WHERE T1.MEMBER_NO = T2.FOLLOWED_NO               \n");
+			sb.append("AND T2.FOLLOWING_NO = ?                           \n");
+			
+			LOG.debug(sb.toString());
+			pstmt = connection.prepareStatement(sb.toString());
+			LOG.debug("3. PreparedStatement: " + connection);
+			
+			pstmt.setInt(1, inVO.getMember_no());
+			
+			rs = pstmt.executeQuery();
+			LOG.debug("3.1 ResultSet: " + rs);
+			
+			while(rs.next() == true) {
+				
+				FollowVO follow = new FollowVO();
+				
+				follow.setFollowingNo(rs.getInt("FOLLOWED_NO"));
+				follow.setName(rs.getString("NAME"));
+				follow.setLocation(rs.getString("LOCATION"));
+				follow.setFollowDt(rs.getString("FOLLOW_DT"));
+				follow.setTheirFollowedCount(rs.getInt("THEIR_FOLLOWED_COUNT"));
+				
+				list.add(follow);
+			}
+			
+			for(FollowVO vo : list) {
+				LOG.debug(vo);
+			}
+			LOG.debug("=================조회건수"+list.size());
+			
+			connection.commit();
+			
+		}  catch(SQLException e) {
+			LOG.debug("doInquireFollowed: "+e.getMessage());
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs);
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+		}
+		
+		return list;
+	}
+	
+	public List<MemberPostVO> doInquirePost(DTO param){
+		List<MemberPostVO> list = new ArrayList<MemberPostVO>();
+		
+		MemberVO inVO = (MemberVO) param;
+		
+		LOG.debug("0.param: "+inVO);
+		LOG.debug("doInquirePost 시작");
+		
+		Connection connection = null;
+		PreparedStatement pstmt = null;
+		
+		//Return Value 처리
+		ResultSet rs = null;
+		
+		try {
+			connection = ConnectionMaker.getConnection();
+			connection.setAutoCommit(false);
+			LOG.debug("2.데이터베이스 커넥션 구함 "+connection);
+			
+			StringBuffer sb = new StringBuffer(500);
+			
+			sb.append("SELECT t1.post_no,                                          \n");
+			sb.append("    t1.pic_no,                                              \n");
+			sb.append("    t1.member_no,                                           \n");
+			sb.append("    t2.path || '/' || t2.pic_group || '/' ||t2.save_nm path \n");
+			sb.append("FROM post t1, picture t2                                    \n");
+			sb.append("WHERE member_no = ?                                         \n");
+			sb.append("AND t1.pic_no = t2.pic_no                                   \n");
+			sb.append("ORDER BY reg_dt DESC                                        \n");
+			
+			LOG.debug(sb.toString());
+			pstmt = connection.prepareStatement(sb.toString());
+			LOG.debug("3. PreparedStatement: " + connection);
+			
+			pstmt.setInt(1, inVO.getMember_no());
+			
+			rs = pstmt.executeQuery();
+			LOG.debug("3.1 ResultSet: " + rs);
+			
+			while(rs.next() == true) {
+				
+				MemberPostVO post = new MemberPostVO();
+				
+				post.setPostNo(rs.getInt("POST_NO"));
+				post.setPicNo(rs.getInt("PIC_NO"));
+				post.setMemberNo(rs.getInt("MEMBER_NO"));
+				post.setPath(rs.getString("PATH"));
+				
+				list.add(post);
+			}
+			
+			for(MemberPostVO vo : list) {
+				LOG.debug(vo);
+			}
+			LOG.debug("=================조회건수"+list.size());
+			
+			connection.commit();
+			
+		}  catch(SQLException e) {
+			LOG.debug("doInquirePost: "+e.getMessage());
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs);
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+		}
+		
+		return list;
+	}
+	
+}

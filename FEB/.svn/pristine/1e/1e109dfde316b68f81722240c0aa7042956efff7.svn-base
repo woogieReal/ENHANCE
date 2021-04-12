@@ -1,0 +1,105 @@
+/**
+* <pre>
+* com.sist.feb.member.dao
+* Class Name : MemberRegisterDao.java
+* Description:
+* Author: 임하람
+* Since: 2021/03/09
+* Version 0.1
+* Copyright (c) by H.R.LIM All right reserved.
+* Modification Information
+* 수정일   수정자    수정내용
+*-----------------------------------------------------
+*2021/03/09 최초생성
+*-----------------------------------------------------
+* </pre>
+*/
+package com.sist.feb.member.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import org.apache.log4j.Logger;
+
+import com.sist.feb.member.cmn.JDBCUtil;
+import com.sist.feb.member.cmn.ConnectionMaker;
+import com.sist.feb.member.cmn.DTO;
+import com.sist.feb.member.domain.MemberVO;
+
+/**
+ * @author hansol
+ *
+ */
+public class MemberRegisterDao extends DTO{
+
+	final Logger LOG = Logger.getLogger(MemberRegisterDao.class);
+	
+	public MemberRegisterDao() {
+		
+		
+	}
+
+	
+	/**
+	 * 회원가입
+	 * @param param
+	 * @return
+	 */
+	public int doRegister(DTO param) {
+		int flag = 0;
+		
+		MemberVO inVO = (MemberVO)param;
+		LOG.debug("0.param:"+inVO);
+		
+		Connection connection = null;
+		PreparedStatement pstmt =null;
+		
+		try {
+			connection = ConnectionMaker.getConnection();
+			LOG.debug("2.데이터베이스 커넥션 구함:"+connection);
+			
+			StringBuffer sb = new StringBuffer(1000);
+			sb.append("INSERT INTO MEMBER (");
+			sb.append("		member_no,      \n ");
+			sb.append("		name,    \n ");
+			sb.append("		email, \n ");
+			sb.append("		pw,      \n ");
+			sb.append("		location    \n ");
+			sb.append(")VALUES (      \n ");
+			sb.append("		MEMBER_SEQ.nextval,        \n ");
+			sb.append("		?,        \n ");
+			sb.append("		?,        \n ");
+			sb.append("		?,        \n ");
+			sb.append("		?         \n ");
+			sb.append(")              \n ");
+			
+			pstmt = connection.prepareStatement(sb.toString());
+			
+			pstmt.setString(1,inVO.getName());
+			pstmt.setString(2,inVO.getEmail());
+			pstmt.setString(3,inVO.getPw());
+			pstmt.setString(4,inVO.getLocation());
+			
+			LOG.debug("2.1. 쿼리실행 PreparedStatement : \n "+sb.toString());
+			LOG.debug("3. 쿼리실행  : "+connection);
+			
+			flag = pstmt.executeUpdate();
+			LOG.debug("4. 쿼리 실행 flag : "+flag);
+			
+		}catch (SQLException e) {
+			LOG.debug("SQLException:"+e.getMessage());
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+		}
+		
+	
+		
+		return flag;
+		
+		
+	}
+	
+}

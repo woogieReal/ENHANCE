@@ -1,0 +1,37 @@
+@charset "UTF-8";
+body{
+    margin:0;
+}
+
+a{
+	text-decoration:none;
+	color:white ;
+	padding: 4px 4px;
+}
+
+.navbar{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background-color: #263343;
+    padding: 4px 6px;
+    font-weight: bold;
+}
+
+.nav{
+	font-size:15px;
+	list-style:none;
+	color:white;
+	display:flex;
+	
+}
+.nav li{
+	padding: 4px 6px;
+}
+
+
+.nav navbar-item li:hover{
+	background-color:#d49466;
+	border-radius:3px;
+}
+

@@ -1,0 +1,176 @@
+/**
+* <pre>
+* com.sist.feb.category.dao
+* Class Name : CategoryDao.java
+* Description:
+* Author: 임하람
+* Since: 2021/03/08
+* Version 0.1
+* Copyright (c) by H.R.LIM All right reserved.
+* Modification Information
+* 수정일   수정자    수정내용
+*-----------------------------------------------------
+*2021/03/08 최초생성
+*-----------------------------------------------------
+* </pre>
+*/
+package com.sist.feb.category.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.sist.feb.category.cmn.DTO;
+import com.sist.feb.category.cmn.WorkStandard;
+import com.sist.feb.category.domain.CategoryVO;
+import com.sist.feb.category.domain.SearchVO;
+import com.sist.feb.member.cmn.ConnectionMaker;
+import com.sist.feb.member.cmn.JDBCUtil;
+
+/**
+ * @author 임하람
+ *
+ */
+public class CategoryDao implements WorkStandard {
+	final Logger LOG = Logger.getLogger(CategoryDao.class);
+	
+	public CategoryDao() { }//default 생성자
+	
+	/**
+	 * category가 "UX_UI"인 게시물 목록을 불러오시오
+	 * doCateRetrieve :카테고리 목록조회
+	 * @return list
+	 */
+	@Override
+	public List<CategoryVO> doCateRetrieve(DTO param) {
+		
+		List<CategoryVO> list = new ArrayList<CategoryVO>();
+		SearchVO inVO = (SearchVO) param;
+		
+		LOG.debug("****CategoryDao****doCateRetrieve()****");
+		LOG.debug("0.param:"+inVO);
+		
+		Connection connection =null;
+		PreparedStatement pstmt = null;
+		ResultSet rs  = null;
+		
+		try {
+			connection = ConnectionMaker.getConnection();
+			LOG.debug("2.데이터베이스 커넥션 구함 :"+connection);
+			
+			//카테고리 선택!!
+			/*전체(조건 아무것도 없음)
+			10=ux_ui
+			20=3d_art
+			30=illustration
+			40=graphic
+			50=photography 
+			60=architecture
+			70=product_design
+			80=advertisement
+			90=art
+			100=fashion*/
+			
+			StringBuffer sbWhere = new StringBuffer(500);//동적 검색조건 처리
+			
+			//카테고리 선택하면 !!
+			if(null != inVO && inVO.getDiv() != "") {
+			
+			//cf)'%' : 모든 데이터를 조회하라!
+			//검색하고자 하는 필드명이 "title" 이고 해당 필드에서 검색할 내용을 파라미터를 "keyword" 라고 하면 아래와 같이 검색
+//			[Oracle]
+//			title like '%' ||  #{keyword} || '%'
+			
+				//ux_ui
+				if(inVO.getDiv().equals("10")) {
+					sbWhere.append("AND ux_ui like '%' || '%' \n");
+				//3d_art
+				}else if(inVO.getDiv().equals("20")) {
+					sbWhere.append("AND 3d_art like '%' || '%' \n");
+				//illustration	
+				}else if(inVO.getDiv().equals("30")) {
+					sbWhere.append("AND illustration like '%' || '%' \n");
+				//graphic	
+				}else if(inVO.getDiv().equals("40")) {
+					sbWhere.append("AND graphic like '%' || '%' \n");
+				//photography
+				}else if(inVO.getDiv().equals("50")) {
+					sbWhere.append("AND photography like '%' || '%' \n");
+				//architecture
+				}else if(inVO.getDiv().equals("60")) {
+					sbWhere.append("AND architecture like '%' || '%' \n");
+				//product_design
+				}else if(inVO.getDiv().equals("70")) {
+					sbWhere.append("AND product_design like '%' || '%' \n");
+				//advertisement
+				}else if(inVO.getDiv().equals("80")) {
+					sbWhere.append("AND advertisement like '%' || '%' \n");
+				//art
+				}else if(inVO.getDiv().equals("90")) {
+					sbWhere.append("AND art like '%' || '%' \n");
+				//fashion	
+				}else if(inVO.getDiv().equals("100")) {
+					sbWhere.append("AND fashion like '%' || '%' \n");
+				}//--end if
+
+			
+			}//--end 카테고리 선택조건
+
+			//3.쿼리
+			StringBuffer sb = new StringBuffer(2000);
+			sb.append("SELECT c.category_seq,					\n");
+			sb.append("	   	  c.name,                           \n");
+			sb.append("	      p.post_no                         \n");
+			sb.append("FROM category c,post p                   \n");
+			sb.append("WHERE c.category_seq = p.category_seq    \n");
+			
+			LOG.debug("2.1.쿼리실행 PreparedStatement :"+sb.toString());
+			
+			pstmt = connection.prepareStatement(sb.toString());
+			LOG.debug("3. PreparedStatement : "+pstmt);
+			
+			//param set
+			
+			//카테고리 선택하면 ~~~!!!작업할 차례!!!!
+			if(null != inVO && inVO.getDiv() != "") {
+				
+			}//--if
+			
+			//-------param set end
+			
+			//쿼리실행
+			//rs = pstmt.executeQuery();
+			//LOG.debug("3.1. ResultSet :"+rs);
+			
+			//while(rs.next() == true) {
+				//CategoryVO category = new CategoryVO();//return 객체
+				
+				//category.setCategory_seq(rs.getInt("category_seq"));
+				//category.setName(rs.getString("name"));
+				
+				
+			//}//--while
+			
+			
+		}catch(SQLException e) {
+			LOG.debug("SQLException"+e.getMessage());
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(rs);
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(connection);
+			
+		}//--finally
+		
+		return list;
+	}//--doCateRetrieve
+
+
+
+
+}//--class

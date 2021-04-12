@@ -1,0 +1,32 @@
+/**
+* <pre>
+* com.sist.feb.postcate.cmn
+* Class Name : WorkStandard.java
+* Description:
+* Author: 임하람
+* Since: 2021/03/07
+* Version 0.1
+* Copyright (c) by H.R.LIM All right reserved.
+* Modification Information
+* 수정일   수정자    수정내용
+*-----------------------------------------------------
+*2021/03/07 최초생성
+*-----------------------------------------------------
+* </pre>
+*/
+package com.sist.feb.postcate.cmn;
+
+/**
+ * @author user
+ *
+ */
+public interface WorkStandard {
+	//카테고리 분야 중 게시물 분야선택
+	//doInsert check
+	//doDelete
+	//doUpdate
+	//doSelectOne
+	//doRetrieve
+	
+
+}//--interface end

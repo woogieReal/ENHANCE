@@ -1,0 +1,193 @@
+package com.sist.feb.post.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+import com.google.gson.Gson;
+import com.sist.feb.member.cmn.StringUtil;
+import com.sist.feb.post.cmn.PostMsgVO;
+import com.sist.feb.post.dao.PostDao;
+import com.sist.feb.post.domain.PostPicVO;
+import com.sist.feb.post.domain.PostVO;
+import com.sist.feb.post.service.PostService;
+import com.sist.feb.tag.domain.TagVO;
+
+/**
+ * Servlet implementation class PostController
+ */
+@WebServlet("/post/post.do")
+public class PostController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	final Logger LOG = Logger.getLogger(PostController.class);
+	
+	PostService postService;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public PostController() {
+        super();
+        postService = new PostService();
+    }
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//request에 들어오는 encoding을 일괄로 UTF-8로 지정해줌
+		request.setCharacterEncoding("UTF-8");
+		
+		String workType = request.getParameter("work_type");
+		LOG.debug("--------------------------------------------------");
+		LOG.debug("-work_type-"+workType);
+		LOG.debug("--------------------------------------------------");
+		
+		switch(workType) {
+			case "doSelectOne" : //단건조회
+				doSelectOne(request,response);
+			break;
+			case "doInsert" : //등록
+				doInsert(request,response);
+			break;
+			case "doUpdate" : //수정하기
+				doUpdate(request,response);
+			break;
+			case "tagInsert" :
+				doTagInsert(request,response);
+			break;
+			
+
+		}
+		
+	}
+	
+	public void doTagInsert(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		
+		List <TagVO> tagList = new ArrayList();
+		
+		
+	}
+	
+	
+	public void doUpdate(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		LOG.debug("--------------------------------------------------");
+		LOG.debug("|                     doUpdate                   |");
+		LOG.debug("--------------------------------------------------");
+	
+		
+	}
+	
+	public void doSelectOne(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		
+		LOG.debug("--------------------------------------------------");
+		LOG.debug("|                    doSelectOne                 |");
+		LOG.debug("--------------------------------------------------");
+		
+		String postNo = StringUtil.nvl(request.getParameter("post_no"),"");
+		LOG.debug("--------------------------------------------------");
+		LOG.debug("-post_no- "+postNo);
+		LOG.debug("--------------------------------------------------");
+		
+		PostPicVO param = new PostPicVO();
+		param.setPostNo(Integer.parseInt("104"));//"63"을 postNo로 바꿔주기
+		LOG.debug("=param="+param);
+	
+		//단건조회 실행
+		PostPicVO outVO = postService.doSelectOne(param);
+		LOG.debug("-param-"+param);
+		
+		//화면으로 데이터 전달 
+		request.setAttribute("vo", outVO);
+		//frm.submit();을 했기 때문에 화면이 refresh되면서 member_mng화면으로 이동한다.
+		RequestDispatcher dispacher = request.getRequestDispatcher("/post/post_mng.jsp");
+		dispacher.forward(request, response);
+		
+	}
+	
+	public void doInsert(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		
+		LOG.debug("--------------------------------------------------");
+		LOG.debug("|                    doInsert                     |");
+		LOG.debug("--------------------------------------------------");
+		
+		String title = StringUtil.nvl(request.getParameter("title"), "");
+		String category = StringUtil.nvl(request.getParameter("category"),"");
+		String contents = StringUtil.nvl(request.getParameter("contents"), "");
+		//String file = StringUtil.nvl(request.getParameter("file"),"");
+		//String tag = StringUtil.nvl(request.getParameter("tag"),"");
+		
+		LOG.debug("--------------------------------------------------");
+		LOG.debug("-title- "+title);
+		LOG.debug("-category- "+category);
+		LOG.debug("-contents- "+contents);
+		//LOG.debug("-file- "+file);
+		//LOG.debug("-tag- "+tag);
+		LOG.debug("--------------------------------------------------");
+		
+		//server에 DTO전달
+		PostVO param = new PostVO();
+		param.setTitle(title);
+		param.setCategorySeq(Integer.parseInt(category));
+		param.setContents(contents);
+		//param.setPicGroup(Integer.parseInt(file));
+		//param.setTagGroup(Integer.parseInt(tag));
+		
+		
+		LOG.debug("-param-"+param);
+		LOG.debug("------------------------------------------");
+		
+		int flag = this.postService.doTagInsert(param);
+		
+		PostMsgVO messageVO = new PostMsgVO();
+		String message = "";
+		
+		if(1==flag) {
+			message = "게시글이 등록되었습니다";
+		}else {
+			message ="등록 실패";
+		}
+		messageVO.setMsgContents(message);
+		messageVO.setMsgId(String.valueOf(flag));
+		
+		Gson gson = new Gson();
+		String gsonString = gson.toJson(messageVO);
+		
+		LOG.debug("=gsonString="+gsonString);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		out.print(gsonString);
+		
+	}
+
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doGet(request, response);
+	}
+
+}

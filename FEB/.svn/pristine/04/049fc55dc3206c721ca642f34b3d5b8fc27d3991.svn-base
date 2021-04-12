@@ -1,0 +1,166 @@
+package com.sist.feb.post.controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+import com.sist.feb.member.cmn.StringUtil;
+import com.sist.feb.post.dao.PostDao;
+import com.sist.feb.post.domain.PostVO;
+import com.sist.feb.post.service.PostService;
+
+/**
+ * Servlet implementation class PostController
+ */
+@WebServlet("/post/post.do")
+public class PostController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	final Logger LOG = Logger.getLogger(PostController.class);
+	
+	PostService postService;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public PostController() {
+        super();
+        postService = new PostService();
+    }
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//request에 들어오는 encoding을 일괄로 UTF-8로 지정해줌
+		request.setCharacterEncoding("UTF-8");
+		
+		String workType = request.getParameter("work_type");
+		LOG.debug("--------------------------------------------------");
+		LOG.debug("-work_type-"+workType);
+		LOG.debug("--------------------------------------------------");
+		
+		switch(workType) {
+			case "doSelectOne" :
+				doSelectOneMng(request,response);
+			break;
+			case "doInsert" : //등록
+				doInsert(request,response);
+			break;
+			case "UpdatePg" : //수정페이지
+				doSelectOneMod(request,response);
+			break;
+			case "doUpdate" : //수정하기
+				doUpdate(request,response);
+			break;
+
+		}
+		
+	}
+	
+	public void doUpdate(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		LOG.debug("-------------------------------------------");
+		LOG.debug("-doUpdate-");
+		LOG.debug("-------------------------------------------");
+	
+		
+	}
+	public void doSelectOneMod(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		LOG.debug("-------------------------------------------");
+		LOG.debug("-doSelectOneMod-");
+		LOG.debug("-------------------------------------------");
+		
+		PostVO outVO = postService.doSelectOne(new PostVO(84, 8, "title_888_U", "contents_888_U", 0, "21/03/12", "21/03/12", 8, 8, 8, 8, 8));
+		
+		LOG.debug("-outVO-"+outVO);
+													
+		
+		//화면에 데이터 전달
+		request.setAttribute("outVO", outVO); //""에 변수명 똑같에 넣어야 함 (안그러면 오류..)
+		
+		RequestDispatcher dispacher = request.getRequestDispatcher("/post/post_mod.jsp");
+		dispacher.forward(request, response);
+	}
+	
+	public void doSelectOneMng(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		
+		LOG.debug("-------------------------------------------");
+		LOG.debug("-doSelectOne-");
+		LOG.debug("-------------------------------------------");
+		
+		PostVO outVO = postService.doSelectOne(new PostVO(84, 8, "title_888_U", "contents_888_U", 0, "21/03/12", "21/03/12", 8, 8, 8, 8, 8));
+		
+		LOG.debug("-outVO-"+outVO);
+													
+		
+		//화면에 데이터 전달
+		request.setAttribute("outVO", outVO); //""에 변수명 똑같에 넣어야 함 (안그러면 오류..)
+		
+		RequestDispatcher dispacher = request.getRequestDispatcher("/post/post_mng.jsp");
+		dispacher.forward(request, response);
+		
+	}
+	
+	public void doInsert(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		
+		LOG.debug("-------------------------------------------");
+		LOG.debug("-doInsert-");
+		LOG.debug("-------------------------------------------");
+		
+		String title = request.getParameter("title");
+		int category = Integer.parseInt(request.getParameter("category"));
+		String contents = request.getParameter("contents");
+		int file = Integer.parseInt(request.getParameter("file"));
+		int tag = Integer.parseInt(request.getParameter("tag"));
+		
+		LOG.debug("--------------------------------------------------");
+		LOG.debug("-title- "+title);
+		LOG.debug("-category- "+category);
+		LOG.debug("-contents- "+contents);
+		LOG.debug("-file- "+file);
+		LOG.debug("-tag- "+tag);
+		LOG.debug("--------------------------------------------------");
+		
+		//server에 DTO전달
+		PostVO param = new PostVO();
+		param.setTitle(title);
+		param.setCategorySeq(category);
+		param.setContents(contents);
+		param.setPicGroup(file);
+		param.setTagGroup(tag);
+		
+		
+		LOG.debug("-param-"+param);
+		LOG.debug("------------------------------------------");
+		
+		
+		
+		
+		
+	}
+
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		doGet(request, response);
+	}
+
+}

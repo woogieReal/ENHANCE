@@ -1,0 +1,38 @@
+/**
+* <pre>
+* com.sist.feb.interest.service
+* Class Name : InterestService.java
+* Description:
+* Author: 임하람
+* Since: 2021/03/09
+* Version 0.1
+* Copyright (c) by H.R.LIM All right reserved.
+* Modification Information
+* 수정일   수정자    수정내용
+*-----------------------------------------------------
+*2021/03/09 최초생성
+*-----------------------------------------------------
+* </pre>
+*/
+package com.sist.feb.interest.service;
+
+import org.apache.log4j.Logger;
+
+import com.sist.feb.interest.dao.InterestDao;
+
+
+/**
+ * @author 임하람
+ *
+ */
+public class InterestService {
+	
+	private final Logger LOG = Logger.getLogger(InterestService.class);
+	private InterestDao dao;
+	
+	public InterestService() {
+		dao= new InterestDao();
+		
+	}//--생성자
+
+}//--class

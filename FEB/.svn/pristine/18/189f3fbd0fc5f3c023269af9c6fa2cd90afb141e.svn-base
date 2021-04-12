@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<head>
+    <meta charset="UTF-8">
+    
+   
+    <title>Nav bar</title>
+    	<link rel="stylesheet" href="header_style.css">
+    	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/42ce6799d7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <i class="fab fa-blogger"></i>
+            <a href="">Enhance</a>
+
+        </div>
+
+        <ul class="navbar_menu">
+            <li><a href="">당신을 위한</a></li>
+            <li><a href="">탐색</a></li>
+        </ul>
+        <ul class="navbar_icons">
+         	<li><a href="">프로젝트만들기</a></li>
+       		 <li><a href="">로그인</a></li>
+        	<li><a href="">등록</a></li>
+           <li><i class="fas fa-envelope"></i></li>
+            <li><i class="fas fa-user-circle"></i></li>
+        </ul>
+    </nav>
+</body>
+</html>

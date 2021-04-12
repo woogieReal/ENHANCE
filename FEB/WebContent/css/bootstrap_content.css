@@ -1,0 +1,42 @@
+@charset "UTF-8";
+/*css 참고: https://developer.mozilla.org/ko/docs/Web/CSS/Reference*/
+/*반응형~~~~~~!!!*/
+	body{
+		background: #ffffff;
+	}
+	
+	#wrap{
+		width: 96%;
+		height: 900px; 
+		color:#ffffff;
+		text-align: center;
+		font-size: 40px;
+		margin: 0 auto; /*위,아래,오른쪽,왼쪽 : 0 (위,아래) auto(오른쪽,왼쪽 브라우저가 계산)*/
+	}
+	/*
+	   float : css를 정렬하기 위해 사용되는 속성
+	   https://electronic-moongchi.tistory.com/21
+	   객체를 오른쪽이나 왼쪽으로 정렬,  문서 배치에 사용.
+	   float:none;
+	         left;왼쪽
+	         right:오른쪽
+	*/
+	.header{
+        width: 100%; /**/
+		height: 100px;
+	    line-height: 100px;
+	}
+	
+	.contents{
+		width: 100%;
+		height: 700px;
+		background: #f7bacf;
+		line-height: 700px;
+	}	
+
+	.footer{
+        width: 100%;
+		height: 100px;
+	    line-height: 100px;
+	}
+</style>

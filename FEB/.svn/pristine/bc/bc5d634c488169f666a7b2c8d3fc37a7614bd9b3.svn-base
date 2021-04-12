@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="/cmn/common.jsp" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LOGIN</title>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+	<section class="login-form">
+		<h1>로그인</h1>
+		<form action="<%=cPath %>/member/member.login" method="get" >
+			<div class="int-area">
+				<input type="text" name="email" id="email" autocomplete="off" required />
+				<label for="email">E-MAIL</label>
+			</div>
+				<div class="int-area">
+				<input type="password" name="pw" id="pw" autocomplete="off" required />
+				<label for="pw">PASSWORD</label>
+			</div>
+			<div class="btn-area">
+				<button type="submit" value="login">로그인</button>		
+			</div>
+		</form>
+		<div class="caption">
+			<a href="http://localhost:8080/FEB/member/member_Join.jsp">계정 만들기</a>
+		</div>
+			</section>
+</body>
+</html>

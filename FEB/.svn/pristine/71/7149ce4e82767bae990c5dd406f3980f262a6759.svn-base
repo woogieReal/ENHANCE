@@ -1,0 +1,79 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JOIN</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="jquery-3.4.1.js"></script>
+</head>
+<body>
+	<section class="login-form">
+		<h1>계정 만들기</h1>
+		<form action="">
+			
+			<div class="int-area">
+				<input type="text" name="id" id="id" autocomplete="off" required>
+				<label for="id">E-MAIL</label>
+				</div>
+				<div class="int-area">
+				<input type="text" name="name" id="name" autocomplete="off" required>
+				<label for="pw">NAME</label>
+				</div>
+				<div class="int-area">
+				<input type="password" name="pw" id="pw" autocomplete="off" required>
+				<label for="pw">PASSWORD</label>
+				</div>
+			<style>
+					select { width: 400px; height: 31px; font-size: 15px; color:#999;
+					border:2px solid #ddd;
+				}
+					</style>
+				<select>
+				<option value="국가를 선택하세요">국가를 선택해주세요</option>
+					<option value="Austria">Austria</option>
+<option value="Australia">Australia</option>
+<option value="Belgium">Belgium</option>
+<option value="Canada">Canada</option>
+<option value="Chile">Chile</option>
+<option value="Colombia">Colombia</option>
+<option value="CzechRepublic">CzechRepublic</option>
+<option value="Denmark">Denmark</option>
+<option value="Estonia">Estonia</option>
+<option value="Finland">Finland</option>
+<option value="France">France</option>
+<option value="Germany">Germany</option>
+<option value="Greece">Greece</option>
+<option value="Hungary">Hungary</option>
+<option value="Iceland">Iceland</option>
+<option value="Ireland">Ireland</option>
+<option value="Israel">Israel</option>
+<option value="Italy">Italy</option>
+<option value="Japan">Japan</option>
+<option value="Korea">Korea</option>
+<option value="Latvia">Latvia</option>
+<option value="Lithuania">Lithuania</option>
+<option value="Luxembourg">Luxembourg</option>
+<option value="Mexico">Mexico</option>
+<option value="theNetherlands">theNetherlands</option>
+<option value="NewZealand">NewZealand</option>
+<option value="Norway">Norway</option>
+<option value="Poland">Poland</option>
+<option value="Portugal">Portugal</option>
+<option value="Slovak">Slovak</option>
+<option value="Republic">Republic</option>
+<option value="Slovenia">Slovenia</option>
+<option value="Spain">Spain</option>
+<option value="Sweden">Sweden</option>
+<option value="Switzerland">Switzerland</option>
+<option value="Turkey">Turkey</option>
+<option value="theUnitedKingdom">theUnitedKingdom</option>
+<option value="theUnitedStates">theUnitedStates</option>
+</select>
+		<div class="btn-area">
+			<button type="submit">가입</button>		
+			</div>
+			</section>
+</body>
+</html>

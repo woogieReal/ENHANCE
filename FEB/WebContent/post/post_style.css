@@ -1,0 +1,199 @@
+@charset "UTF-8";
+body {
+	padding-bottom: 30px;
+}
+#posting_member_profile_image:hover {
+	/* border: 2px solid black; */
+	box-shadow: 0.5px 0.5px 2px;
+}
+
+.text_box_info_detail{
+	margin: -5px;
+	padding: 12px;
+	/* border: 0.1em solid gray; */
+	border-radius: 5px;
+	resize: none;
+	width: 200px;
+	
+}
+
+.text_box_info_name {
+	margin: 5px;
+	padding: 12px;
+	/* border: 0.1em solid gray; */
+	border-radius: 5px;
+	resize: none;
+	width: 200px;
+	font-weight: bold;
+	font-size: 35px;
+	text-align: center;
+}
+
+.button {
+	background-color: white;
+	font-weight: bold;
+	border: 0.1em solid gray;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 10px;
+	width: 60px;
+}
+
+.member_info {
+	/* border: 1px solid black; */
+	margin: 15px;
+	width: 240px;
+	padding-left: 7px;
+	/* height: 400px; */
+}
+
+.member_post_box {
+	/* border: 1px solid red; */
+	width: 240px;
+	display: inline-block;
+	margin: 10px;
+	padding: 0px;
+}
+
+.contents_entire {
+	border: 2px solid black;
+	width: 1100px;
+	height: auto;
+}
+
+.contents_left {
+	/* border: 1px solid red; */
+	float: left;
+	width: 650px;
+}
+
+.contents_right {
+	/* border: 1px solid blue; */
+	float: right;
+	width: 270px;
+	box-shadow: 0.5px 0.5px 2px;
+	border-radius: 5px;
+}
+
+.container {
+	padding-top: 100px;
+	color: black;
+}
+
+.list_button {
+	background-color: #263343;
+	font-weight: bold;
+	color: #ffffff;
+	border: 0.1em solid gray;
+	border-radius: 6px;
+	padding: 5px;
+	margin: 5px;
+	width: 60px;
+}
+
+.button1 {
+	background-color: #f5f5f5;
+	font-weight: bold;
+	border: 0.1em solid gray;
+	border-radius: 6px;
+	padding: 4px;
+	margin: 10px;
+	width: 100px;
+}
+
+.form-control {
+	margin: 5px;
+	padding: 12px;
+	border: 0.1em solid gray;
+	border-radius: 5px;
+	resize: none;
+	width: 1100px;
+}
+
+/* 해시태그 css  */
+ul.tag_list {
+    padding: 16px 0;
+   }
+.tag_list > li {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 14px;
+    letter-spacing: -.5px;
+}
+    
+ul li.tag-item {
+    padding: 4px 8px;
+    background-color: #777;
+    color: #000;
+}
+
+.tag-item:hover {
+    background-color: #262626;
+    color: #fff;
+}
+
+.del-btn {
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 8px;
+}
+/* 해시태그 css  */
+
+.box-radio-input input[type="radio"]{
+  display:none; /* 라디오타입 동그라미 선택지 없애는거 */
+}
+
+.box-radio-input input[type="radio"] + span{
+
+  display:inline-block;
+  background:none;
+  border:1px solid #dfdfdf;  
+  padding:0px 10px;
+  text-align:center;
+  height:35px;
+  line-height:33px;
+  font-weight:500;
+  cursor:pointer;
+}
+
+.box-radio-input input[type="radio"]:checked + span{
+ 
+  background:#23a3a7;
+  color:#fff;
+}
+
+.magin >label {
+	margin-left: 5px;
+}
+
+.contents_box {
+	
+	border-radius: 4px;
+	border: solid 1px #dfdfdf; 
+	background-color: white;
+	width: 1080px;
+	padding: 30px;
+	text-align: center;
+	margin: 0 auto ;
+	
+}
+
+img {
+  	width: 50%;
+	object-fit: cover;
+}
+
+.wrap1 {
+	
+	/* height: 1000px; */
+	padding: 100px;
+	width: 1080px;
+	margin: 0 auto;
+	
+}
+
+.wrap2{
+	/* height:60%; */
+	margin: 20px 0px 0px 0px;
+}

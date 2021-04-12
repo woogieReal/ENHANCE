@@ -1,0 +1,700 @@
+2021-03-24 20:05:07,249 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:54)     - ----------------------------------------------
+2021-03-24 20:05:07,253 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:05:07,253 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ----------------------------------------------
+2021-03-24 20:05:13,935 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:54)     - ----------------------------------------------
+2021-03-24 20:05:13,938 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:05:13,938 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ----------------------------------------------
+2021-03-24 20:06:15,814 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:54)     - ----------------------------------------------
+2021-03-24 20:06:15,816 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:06:15,816 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ----------------------------------------------
+2021-03-24 20:06:51,820 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:54)     - ----------------------------------------------
+2021-03-24 20:06:51,822 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:06:51,822 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ----------------------------------------------
+2021-03-24 20:08:03,119 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:08:03,121 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:08:03,121 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:08:03,121 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:08:03,121 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:08:03,123 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:08:03,123 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:08:03,123 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=전체, searchWord=제목, toString()=com.sist.feb.search.domain.SearchDetailVO@11758f2a]
+2021-03-24 20:08:03,275 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:08:03,724 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:08:03,724 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:08:03,724 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND ( UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%') OR UPPER(m.name) LIKE UPPER('%'|| ? ||'%') )    
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:08:03,792 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@6d026701
+2021-03-24 20:08:03,850 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@66ac5762
+2021-03-24 20:08:03,850 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:08:03,851 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:0
+2021-03-24 20:08:03,853 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:60)     - resultList :[]
+2021-03-24 20:08:03,853 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:61)     - doCateRetrieve 건수 :0
+2021-03-24 20:08:48,724 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:08:48,727 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:08:48,727 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:08:48,727 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=전체, searchWord=제목, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:08:48,728 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:08:48,729 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:08:48,729 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:08:48,729 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:08:48,729 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=전체, searchWord=제목, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:08:48,850 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:08:49,278 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:08:49,278 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:08:49,278 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND ( UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%') OR UPPER(m.name) LIKE UPPER('%'|| ? ||'%') )    
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:08:49,344 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@55cf0d14
+2021-03-24 20:08:49,396 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@53dbe163
+2021-03-24 20:08:49,396 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:08:49,397 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:0
+2021-03-24 20:08:49,399 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[]
+2021-03-24 20:08:49,399 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :0
+2021-03-24 20:09:51,119 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:09:51,122 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:09:51,122 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:09:51,122 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=, searchWord=, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:09:51,122 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:09:51,123 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:09:51,123 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:09:51,123 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:09:51,123 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=, searchWord=, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:09:51,247 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:09:51,687 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:09:51,687 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:09:51,687 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:09:51,755 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@28d18df5
+2021-03-24 20:09:51,812 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@db57326
+2021-03-24 20:09:51,817 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:09:51,817 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=222, memberNo=33, memberName=KIM JAEUK, title=제목3, readCnt=56, picNo=240, picGroup=222, path=/FEB/pictures/2021/03/강아지6.jpg, toString()=com.sist.feb.category.domain.CatePostVO@149dd36b]
+2021-03-24 20:09:51,818 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=7, cateName=fashion, postNo=220, memberNo=33, memberName=KIM JAEUK, title=제목1, readCnt=54, picNo=235, picGroup=220, path=/FEB/pictures/2021/03/강아지4.jpg, toString()=com.sist.feb.category.domain.CatePostVO@38831718]
+2021-03-24 20:09:51,818 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=8, cateName=illustration, postNo=221, memberNo=33, memberName=KIM JAEUK, title=제목2, readCnt=34, picNo=237, picGroup=221, path=/FEB/pictures/2021/03/강아지5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@2c1156a7]
+2021-03-24 20:09:51,818 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=229, memberNo=33, memberName=KIM JAEUK, title=2021-03-23, readCnt=10, picNo=250, picGroup=229, path=/FEB/pictures/2021/03/우미가 그려준 캐릭터.png, toString()=com.sist.feb.category.domain.CatePostVO@33fe57a9]
+2021-03-24 20:09:51,818 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=6, cateName=ux_ui, postNo=227, memberNo=33, memberName=KIM JAEUK, title=제목8, readCnt=5, picNo=247, picGroup=227, path=/FEB/pictures/2021/03/래옹3.jpg, toString()=com.sist.feb.category.domain.CatePostVO@4982cc36]
+2021-03-24 20:09:51,818 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=4, cateName=art, postNo=225, memberNo=33, memberName=KIM JAEUK, title=제목6, readCnt=3, picNo=245, picGroup=225, path=/FEB/pictures/2021/03/프로그래머 버그5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@691939c9]
+2021-03-24 20:09:51,818 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=2, cateName=product_design, postNo=223, memberNo=33, memberName=KIM JAEUK, title=제목4, readCnt=2, picNo=243, picGroup=223, path=/FEB/pictures/2021/03/유리2.jpg, toString()=com.sist.feb.category.domain.CatePostVO@4f1bfe23]
+2021-03-24 20:09:51,818 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=5, cateName=3d_art, postNo=226, memberNo=33, memberName=KIM JAEUK, title=제목7, readCnt=2, picNo=246, picGroup=226, path=/FEB/pictures/2021/03/에러멈춰1.png, toString()=com.sist.feb.category.domain.CatePostVO@e19bb76]
+2021-03-24 20:09:51,818 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=250, memberNo=2, memberName=Susan, title=태그 테스트, readCnt=1, picNo=254, picGroup=251, path=/FEB/pictures/2021/03/안경3.png, toString()=com.sist.feb.category.domain.CatePostVO@512535ff]
+2021-03-24 20:09:51,819 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=9, cateName=graphic, postNo=228, memberNo=33, memberName=KIM JAEUK, title=제목9, readCnt=1, picNo=248, picGroup=228, path=/FEB/pictures/2021/03/nothing.jpg, toString()=com.sist.feb.category.domain.CatePostVO@71529963]
+2021-03-24 20:09:51,819 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@61a88b8c]
+2021-03-24 20:09:51,819 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=3, cateName=advertisement, postNo=224, memberNo=33, memberName=KIM JAEUK, title=제목5, readCnt=1, picNo=244, picGroup=224, path=/FEB/pictures/2021/03/디자인과를6.png, toString()=com.sist.feb.category.domain.CatePostVO@22295ec4]
+2021-03-24 20:09:51,819 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=251, memberNo=1, memberName=Mark, title=마크의 첫 게시물, readCnt=1, picNo=255, picGroup=252, path=/FEB/pictures/2021/03/패션.jpg, toString()=com.sist.feb.category.domain.CatePostVO@5adb0db3]
+2021-03-24 20:09:51,819 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:13
+2021-03-24 20:09:51,821 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[CatePostVO [categorySeq=1, cateName=architecture, postNo=222, memberNo=33, memberName=KIM JAEUK, title=제목3, readCnt=56, picNo=240, picGroup=222, path=/FEB/pictures/2021/03/강아지6.jpg, toString()=com.sist.feb.category.domain.CatePostVO@149dd36b], CatePostVO [categorySeq=7, cateName=fashion, postNo=220, memberNo=33, memberName=KIM JAEUK, title=제목1, readCnt=54, picNo=235, picGroup=220, path=/FEB/pictures/2021/03/강아지4.jpg, toString()=com.sist.feb.category.domain.CatePostVO@38831718], CatePostVO [categorySeq=8, cateName=illustration, postNo=221, memberNo=33, memberName=KIM JAEUK, title=제목2, readCnt=34, picNo=237, picGroup=221, path=/FEB/pictures/2021/03/강아지5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@2c1156a7], CatePostVO [categorySeq=1, cateName=architecture, postNo=229, memberNo=33, memberName=KIM JAEUK, title=2021-03-23, readCnt=10, picNo=250, picGroup=229, path=/FEB/pictures/2021/03/우미가 그려준 캐릭터.png, toString()=com.sist.feb.category.domain.CatePostVO@33fe57a9], CatePostVO [categorySeq=6, cateName=ux_ui, postNo=227, memberNo=33, memberName=KIM JAEUK, title=제목8, readCnt=5, picNo=247, picGroup=227, path=/FEB/pictures/2021/03/래옹3.jpg, toString()=com.sist.feb.category.domain.CatePostVO@4982cc36], CatePostVO [categorySeq=4, cateName=art, postNo=225, memberNo=33, memberName=KIM JAEUK, title=제목6, readCnt=3, picNo=245, picGroup=225, path=/FEB/pictures/2021/03/프로그래머 버그5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@691939c9], CatePostVO [categorySeq=2, cateName=product_design, postNo=223, memberNo=33, memberName=KIM JAEUK, title=제목4, readCnt=2, picNo=243, picGroup=223, path=/FEB/pictures/2021/03/유리2.jpg, toString()=com.sist.feb.category.domain.CatePostVO@4f1bfe23], CatePostVO [categorySeq=5, cateName=3d_art, postNo=226, memberNo=33, memberName=KIM JAEUK, title=제목7, readCnt=2, picNo=246, picGroup=226, path=/FEB/pictures/2021/03/에러멈춰1.png, toString()=com.sist.feb.category.domain.CatePostVO@e19bb76], CatePostVO [categorySeq=1, cateName=architecture, postNo=250, memberNo=2, memberName=Susan, title=태그 테스트, readCnt=1, picNo=254, picGroup=251, path=/FEB/pictures/2021/03/안경3.png, toString()=com.sist.feb.category.domain.CatePostVO@512535ff], CatePostVO [categorySeq=9, cateName=graphic, postNo=228, memberNo=33, memberName=KIM JAEUK, title=제목9, readCnt=1, picNo=248, picGroup=228, path=/FEB/pictures/2021/03/nothing.jpg, toString()=com.sist.feb.category.domain.CatePostVO@71529963], CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@61a88b8c], CatePostVO [categorySeq=3, cateName=advertisement, postNo=224, memberNo=33, memberName=KIM JAEUK, title=제목5, readCnt=1, picNo=244, picGroup=224, path=/FEB/pictures/2021/03/디자인과를6.png, toString()=com.sist.feb.category.domain.CatePostVO@22295ec4], CatePostVO [categorySeq=1, cateName=architecture, postNo=251, memberNo=1, memberName=Mark, title=마크의 첫 게시물, readCnt=1, picNo=255, picGroup=252, path=/FEB/pictures/2021/03/패션.jpg, toString()=com.sist.feb.category.domain.CatePostVO@5adb0db3]]
+2021-03-24 20:09:51,822 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :13
+2021-03-24 20:10:12,106 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:10:12,108 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:10:12,108 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:10:12,108 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=전체, searchWord=, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:10:12,108 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:10:12,110 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:10:12,110 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:10:12,110 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:10:12,110 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=전체, searchWord=, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:10:12,229 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:10:12,664 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:10:12,664 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:10:12,664 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND ( UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%') OR UPPER(m.name) LIKE UPPER('%'|| ? ||'%') )    
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:10:12,732 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@27adc16e
+2021-03-24 20:10:12,785 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@34a875b3
+2021-03-24 20:10:12,785 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:10:12,786 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:0
+2021-03-24 20:10:12,788 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[]
+2021-03-24 20:10:12,788 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :0
+2021-03-24 20:11:06,026 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:11:06,028 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:11:06,028 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:11:06,028 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=전체, searchWord=, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:11:06,028 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:11:06,030 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:11:06,030 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:11:06,030 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:11:06,030 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=전체, searchWord=, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:11:06,154 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:11:06,595 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:11:06,595 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:11:06,595 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND ( UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%') OR UPPER(m.name) LIKE UPPER('%'|| ? ||'%') )    
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:11:06,662 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@55cf0d14
+2021-03-24 20:11:06,714 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@53dbe163
+2021-03-24 20:11:06,715 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:11:06,715 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:0
+2021-03-24 20:11:06,718 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[]
+2021-03-24 20:11:06,718 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :0
+2021-03-24 20:12:43,043 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:12:43,045 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:12:43,045 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:12:43,045 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=전체, searchWord=, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:12:43,046 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:12:43,047 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:12:43,047 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:12:43,047 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:12:43,047 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=전체, searchWord=, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:12:43,169 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:12:43,599 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:12:43,599 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:12:43,600 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND ( UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%') OR UPPER(m.name) LIKE UPPER('%'|| ? ||'%') )    
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:12:43,665 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@27adc16e
+2021-03-24 20:12:43,719 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@6ee6f53
+2021-03-24 20:12:43,724 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:12:43,725 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=222, memberNo=33, memberName=KIM JAEUK, title=제목3, readCnt=56, picNo=240, picGroup=222, path=/FEB/pictures/2021/03/강아지6.jpg, toString()=com.sist.feb.category.domain.CatePostVO@61a88b8c]
+2021-03-24 20:12:43,725 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=7, cateName=fashion, postNo=220, memberNo=33, memberName=KIM JAEUK, title=제목1, readCnt=54, picNo=235, picGroup=220, path=/FEB/pictures/2021/03/강아지4.jpg, toString()=com.sist.feb.category.domain.CatePostVO@22295ec4]
+2021-03-24 20:12:43,726 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=8, cateName=illustration, postNo=221, memberNo=33, memberName=KIM JAEUK, title=제목2, readCnt=34, picNo=237, picGroup=221, path=/FEB/pictures/2021/03/강아지5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@5adb0db3]
+2021-03-24 20:12:43,726 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=229, memberNo=33, memberName=KIM JAEUK, title=2021-03-23, readCnt=10, picNo=250, picGroup=229, path=/FEB/pictures/2021/03/우미가 그려준 캐릭터.png, toString()=com.sist.feb.category.domain.CatePostVO@3f270e0a]
+2021-03-24 20:12:43,726 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=6, cateName=ux_ui, postNo=227, memberNo=33, memberName=KIM JAEUK, title=제목8, readCnt=5, picNo=247, picGroup=227, path=/FEB/pictures/2021/03/래옹3.jpg, toString()=com.sist.feb.category.domain.CatePostVO@1a760689]
+2021-03-24 20:12:43,726 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=4, cateName=art, postNo=225, memberNo=33, memberName=KIM JAEUK, title=제목6, readCnt=3, picNo=245, picGroup=225, path=/FEB/pictures/2021/03/프로그래머 버그5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@7241a47d]
+2021-03-24 20:12:43,726 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=5, cateName=3d_art, postNo=226, memberNo=33, memberName=KIM JAEUK, title=제목7, readCnt=2, picNo=246, picGroup=226, path=/FEB/pictures/2021/03/에러멈춰1.png, toString()=com.sist.feb.category.domain.CatePostVO@70f59913]
+2021-03-24 20:12:43,726 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=2, cateName=product_design, postNo=223, memberNo=33, memberName=KIM JAEUK, title=제목4, readCnt=2, picNo=243, picGroup=223, path=/FEB/pictures/2021/03/유리2.jpg, toString()=com.sist.feb.category.domain.CatePostVO@77258e59]
+2021-03-24 20:12:43,726 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@5dcd8c7a]
+2021-03-24 20:12:43,726 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=250, memberNo=2, memberName=Susan, title=태그 테스트, readCnt=1, picNo=254, picGroup=251, path=/FEB/pictures/2021/03/안경3.png, toString()=com.sist.feb.category.domain.CatePostVO@2250b9f2]
+2021-03-24 20:12:43,726 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=3, cateName=advertisement, postNo=224, memberNo=33, memberName=KIM JAEUK, title=제목5, readCnt=1, picNo=244, picGroup=224, path=/FEB/pictures/2021/03/디자인과를6.png, toString()=com.sist.feb.category.domain.CatePostVO@7e3181aa]
+2021-03-24 20:12:43,726 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=251, memberNo=1, memberName=Mark, title=마크의 첫 게시물, readCnt=1, picNo=255, picGroup=252, path=/FEB/pictures/2021/03/패션.jpg, toString()=com.sist.feb.category.domain.CatePostVO@253d9f73]
+2021-03-24 20:12:43,727 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=9, cateName=graphic, postNo=228, memberNo=33, memberName=KIM JAEUK, title=제목9, readCnt=1, picNo=248, picGroup=228, path=/FEB/pictures/2021/03/nothing.jpg, toString()=com.sist.feb.category.domain.CatePostVO@142269f2]
+2021-03-24 20:12:43,727 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:13
+2021-03-24 20:12:43,729 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[CatePostVO [categorySeq=1, cateName=architecture, postNo=222, memberNo=33, memberName=KIM JAEUK, title=제목3, readCnt=56, picNo=240, picGroup=222, path=/FEB/pictures/2021/03/강아지6.jpg, toString()=com.sist.feb.category.domain.CatePostVO@61a88b8c], CatePostVO [categorySeq=7, cateName=fashion, postNo=220, memberNo=33, memberName=KIM JAEUK, title=제목1, readCnt=54, picNo=235, picGroup=220, path=/FEB/pictures/2021/03/강아지4.jpg, toString()=com.sist.feb.category.domain.CatePostVO@22295ec4], CatePostVO [categorySeq=8, cateName=illustration, postNo=221, memberNo=33, memberName=KIM JAEUK, title=제목2, readCnt=34, picNo=237, picGroup=221, path=/FEB/pictures/2021/03/강아지5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@5adb0db3], CatePostVO [categorySeq=1, cateName=architecture, postNo=229, memberNo=33, memberName=KIM JAEUK, title=2021-03-23, readCnt=10, picNo=250, picGroup=229, path=/FEB/pictures/2021/03/우미가 그려준 캐릭터.png, toString()=com.sist.feb.category.domain.CatePostVO@3f270e0a], CatePostVO [categorySeq=6, cateName=ux_ui, postNo=227, memberNo=33, memberName=KIM JAEUK, title=제목8, readCnt=5, picNo=247, picGroup=227, path=/FEB/pictures/2021/03/래옹3.jpg, toString()=com.sist.feb.category.domain.CatePostVO@1a760689], CatePostVO [categorySeq=4, cateName=art, postNo=225, memberNo=33, memberName=KIM JAEUK, title=제목6, readCnt=3, picNo=245, picGroup=225, path=/FEB/pictures/2021/03/프로그래머 버그5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@7241a47d], CatePostVO [categorySeq=5, cateName=3d_art, postNo=226, memberNo=33, memberName=KIM JAEUK, title=제목7, readCnt=2, picNo=246, picGroup=226, path=/FEB/pictures/2021/03/에러멈춰1.png, toString()=com.sist.feb.category.domain.CatePostVO@70f59913], CatePostVO [categorySeq=2, cateName=product_design, postNo=223, memberNo=33, memberName=KIM JAEUK, title=제목4, readCnt=2, picNo=243, picGroup=223, path=/FEB/pictures/2021/03/유리2.jpg, toString()=com.sist.feb.category.domain.CatePostVO@77258e59], CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@5dcd8c7a], CatePostVO [categorySeq=1, cateName=architecture, postNo=250, memberNo=2, memberName=Susan, title=태그 테스트, readCnt=1, picNo=254, picGroup=251, path=/FEB/pictures/2021/03/안경3.png, toString()=com.sist.feb.category.domain.CatePostVO@2250b9f2], CatePostVO [categorySeq=3, cateName=advertisement, postNo=224, memberNo=33, memberName=KIM JAEUK, title=제목5, readCnt=1, picNo=244, picGroup=224, path=/FEB/pictures/2021/03/디자인과를6.png, toString()=com.sist.feb.category.domain.CatePostVO@7e3181aa], CatePostVO [categorySeq=1, cateName=architecture, postNo=251, memberNo=1, memberName=Mark, title=마크의 첫 게시물, readCnt=1, picNo=255, picGroup=252, path=/FEB/pictures/2021/03/패션.jpg, toString()=com.sist.feb.category.domain.CatePostVO@253d9f73], CatePostVO [categorySeq=9, cateName=graphic, postNo=228, memberNo=33, memberName=KIM JAEUK, title=제목9, readCnt=1, picNo=248, picGroup=228, path=/FEB/pictures/2021/03/nothing.jpg, toString()=com.sist.feb.category.domain.CatePostVO@142269f2]]
+2021-03-24 20:12:43,729 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :13
+2021-03-24 20:13:03,001 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:13:03,004 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:13:03,004 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:13:03,004 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=전체, searchWord=제목, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:13:03,004 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:13:03,006 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:13:03,006 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:13:03,006 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:13:03,006 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=전체, searchWord=제목, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:13:03,129 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:13:03,564 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:13:03,564 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:13:03,564 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND ( UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%') OR UPPER(m.name) LIKE UPPER('%'|| ? ||'%') )    
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:13:03,630 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@28d18df5
+2021-03-24 20:13:03,684 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@18a136ac
+2021-03-24 20:13:03,688 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:13:03,689 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=222, memberNo=33, memberName=KIM JAEUK, title=제목3, readCnt=56, picNo=240, picGroup=222, path=/FEB/pictures/2021/03/강아지6.jpg, toString()=com.sist.feb.category.domain.CatePostVO@33fe57a9]
+2021-03-24 20:13:03,689 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=7, cateName=fashion, postNo=220, memberNo=33, memberName=KIM JAEUK, title=제목1, readCnt=54, picNo=235, picGroup=220, path=/FEB/pictures/2021/03/강아지4.jpg, toString()=com.sist.feb.category.domain.CatePostVO@4982cc36]
+2021-03-24 20:13:03,689 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=8, cateName=illustration, postNo=221, memberNo=33, memberName=KIM JAEUK, title=제목2, readCnt=34, picNo=237, picGroup=221, path=/FEB/pictures/2021/03/강아지5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@691939c9]
+2021-03-24 20:13:03,690 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=6, cateName=ux_ui, postNo=227, memberNo=33, memberName=KIM JAEUK, title=제목8, readCnt=5, picNo=247, picGroup=227, path=/FEB/pictures/2021/03/래옹3.jpg, toString()=com.sist.feb.category.domain.CatePostVO@4f1bfe23]
+2021-03-24 20:13:03,690 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=4, cateName=art, postNo=225, memberNo=33, memberName=KIM JAEUK, title=제목6, readCnt=3, picNo=245, picGroup=225, path=/FEB/pictures/2021/03/프로그래머 버그5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@e19bb76]
+2021-03-24 20:13:03,690 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=5, cateName=3d_art, postNo=226, memberNo=33, memberName=KIM JAEUK, title=제목7, readCnt=2, picNo=246, picGroup=226, path=/FEB/pictures/2021/03/에러멈춰1.png, toString()=com.sist.feb.category.domain.CatePostVO@512535ff]
+2021-03-24 20:13:03,690 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=2, cateName=product_design, postNo=223, memberNo=33, memberName=KIM JAEUK, title=제목4, readCnt=2, picNo=243, picGroup=223, path=/FEB/pictures/2021/03/유리2.jpg, toString()=com.sist.feb.category.domain.CatePostVO@71529963]
+2021-03-24 20:13:03,690 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=3, cateName=advertisement, postNo=224, memberNo=33, memberName=KIM JAEUK, title=제목5, readCnt=1, picNo=244, picGroup=224, path=/FEB/pictures/2021/03/디자인과를6.png, toString()=com.sist.feb.category.domain.CatePostVO@61a88b8c]
+2021-03-24 20:13:03,690 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=9, cateName=graphic, postNo=228, memberNo=33, memberName=KIM JAEUK, title=제목9, readCnt=1, picNo=248, picGroup=228, path=/FEB/pictures/2021/03/nothing.jpg, toString()=com.sist.feb.category.domain.CatePostVO@22295ec4]
+2021-03-24 20:13:03,690 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:9
+2021-03-24 20:13:03,692 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[CatePostVO [categorySeq=1, cateName=architecture, postNo=222, memberNo=33, memberName=KIM JAEUK, title=제목3, readCnt=56, picNo=240, picGroup=222, path=/FEB/pictures/2021/03/강아지6.jpg, toString()=com.sist.feb.category.domain.CatePostVO@33fe57a9], CatePostVO [categorySeq=7, cateName=fashion, postNo=220, memberNo=33, memberName=KIM JAEUK, title=제목1, readCnt=54, picNo=235, picGroup=220, path=/FEB/pictures/2021/03/강아지4.jpg, toString()=com.sist.feb.category.domain.CatePostVO@4982cc36], CatePostVO [categorySeq=8, cateName=illustration, postNo=221, memberNo=33, memberName=KIM JAEUK, title=제목2, readCnt=34, picNo=237, picGroup=221, path=/FEB/pictures/2021/03/강아지5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@691939c9], CatePostVO [categorySeq=6, cateName=ux_ui, postNo=227, memberNo=33, memberName=KIM JAEUK, title=제목8, readCnt=5, picNo=247, picGroup=227, path=/FEB/pictures/2021/03/래옹3.jpg, toString()=com.sist.feb.category.domain.CatePostVO@4f1bfe23], CatePostVO [categorySeq=4, cateName=art, postNo=225, memberNo=33, memberName=KIM JAEUK, title=제목6, readCnt=3, picNo=245, picGroup=225, path=/FEB/pictures/2021/03/프로그래머 버그5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@e19bb76], CatePostVO [categorySeq=5, cateName=3d_art, postNo=226, memberNo=33, memberName=KIM JAEUK, title=제목7, readCnt=2, picNo=246, picGroup=226, path=/FEB/pictures/2021/03/에러멈춰1.png, toString()=com.sist.feb.category.domain.CatePostVO@512535ff], CatePostVO [categorySeq=2, cateName=product_design, postNo=223, memberNo=33, memberName=KIM JAEUK, title=제목4, readCnt=2, picNo=243, picGroup=223, path=/FEB/pictures/2021/03/유리2.jpg, toString()=com.sist.feb.category.domain.CatePostVO@71529963], CatePostVO [categorySeq=3, cateName=advertisement, postNo=224, memberNo=33, memberName=KIM JAEUK, title=제목5, readCnt=1, picNo=244, picGroup=224, path=/FEB/pictures/2021/03/디자인과를6.png, toString()=com.sist.feb.category.domain.CatePostVO@61a88b8c], CatePostVO [categorySeq=9, cateName=graphic, postNo=228, memberNo=33, memberName=KIM JAEUK, title=제목9, readCnt=1, picNo=248, picGroup=228, path=/FEB/pictures/2021/03/nothing.jpg, toString()=com.sist.feb.category.domain.CatePostVO@22295ec4]]
+2021-03-24 20:13:03,692 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :9
+2021-03-24 20:13:22,668 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:13:22,670 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:13:22,670 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:13:22,670 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=전체, searchWord=s, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:13:22,671 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:13:22,672 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:13:22,672 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:13:22,672 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:13:22,672 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=전체, searchWord=s, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:13:22,795 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:13:23,227 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:13:23,227 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:13:23,227 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND ( UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%') OR UPPER(m.name) LIKE UPPER('%'|| ? ||'%') )    
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:13:23,293 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@2609b277
+2021-03-24 20:13:23,349 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@5d12a356
+2021-03-24 20:13:23,352 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:13:23,353 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@71529963]
+2021-03-24 20:13:23,354 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=250, memberNo=2, memberName=Susan, title=태그 테스트, readCnt=1, picNo=254, picGroup=251, path=/FEB/pictures/2021/03/안경3.png, toString()=com.sist.feb.category.domain.CatePostVO@61a88b8c]
+2021-03-24 20:13:23,354 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:2
+2021-03-24 20:13:23,356 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@71529963], CatePostVO [categorySeq=1, cateName=architecture, postNo=250, memberNo=2, memberName=Susan, title=태그 테스트, readCnt=1, picNo=254, picGroup=251, path=/FEB/pictures/2021/03/안경3.png, toString()=com.sist.feb.category.domain.CatePostVO@61a88b8c]]
+2021-03-24 20:13:23,356 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :2
+2021-03-24 20:13:59,185 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:13:59,187 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:13:59,188 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:13:59,188 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=전체, searchWord=k, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:13:59,188 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:13:59,189 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:13:59,189 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:13:59,190 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:13:59,190 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=전체, searchWord=k, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:13:59,311 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:13:59,752 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:13:59,752 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:13:59,753 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND ( UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%') OR UPPER(m.name) LIKE UPPER('%'|| ? ||'%') )    
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:13:59,820 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@27adc16e
+2021-03-24 20:13:59,875 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@6ee6f53
+2021-03-24 20:13:59,880 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:13:59,881 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=222, memberNo=33, memberName=KIM JAEUK, title=제목3, readCnt=56, picNo=240, picGroup=222, path=/FEB/pictures/2021/03/강아지6.jpg, toString()=com.sist.feb.category.domain.CatePostVO@61a88b8c]
+2021-03-24 20:13:59,881 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=7, cateName=fashion, postNo=220, memberNo=33, memberName=KIM JAEUK, title=제목1, readCnt=54, picNo=235, picGroup=220, path=/FEB/pictures/2021/03/강아지4.jpg, toString()=com.sist.feb.category.domain.CatePostVO@22295ec4]
+2021-03-24 20:13:59,881 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=8, cateName=illustration, postNo=221, memberNo=33, memberName=KIM JAEUK, title=제목2, readCnt=34, picNo=237, picGroup=221, path=/FEB/pictures/2021/03/강아지5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@5adb0db3]
+2021-03-24 20:13:59,881 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=229, memberNo=33, memberName=KIM JAEUK, title=2021-03-23, readCnt=10, picNo=250, picGroup=229, path=/FEB/pictures/2021/03/우미가 그려준 캐릭터.png, toString()=com.sist.feb.category.domain.CatePostVO@3f270e0a]
+2021-03-24 20:13:59,881 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=6, cateName=ux_ui, postNo=227, memberNo=33, memberName=KIM JAEUK, title=제목8, readCnt=5, picNo=247, picGroup=227, path=/FEB/pictures/2021/03/래옹3.jpg, toString()=com.sist.feb.category.domain.CatePostVO@1a760689]
+2021-03-24 20:13:59,881 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=4, cateName=art, postNo=225, memberNo=33, memberName=KIM JAEUK, title=제목6, readCnt=3, picNo=245, picGroup=225, path=/FEB/pictures/2021/03/프로그래머 버그5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@7241a47d]
+2021-03-24 20:13:59,882 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=5, cateName=3d_art, postNo=226, memberNo=33, memberName=KIM JAEUK, title=제목7, readCnt=2, picNo=246, picGroup=226, path=/FEB/pictures/2021/03/에러멈춰1.png, toString()=com.sist.feb.category.domain.CatePostVO@70f59913]
+2021-03-24 20:13:59,882 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=2, cateName=product_design, postNo=223, memberNo=33, memberName=KIM JAEUK, title=제목4, readCnt=2, picNo=243, picGroup=223, path=/FEB/pictures/2021/03/유리2.jpg, toString()=com.sist.feb.category.domain.CatePostVO@77258e59]
+2021-03-24 20:13:59,882 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=251, memberNo=1, memberName=Mark, title=마크의 첫 게시물, readCnt=1, picNo=255, picGroup=252, path=/FEB/pictures/2021/03/패션.jpg, toString()=com.sist.feb.category.domain.CatePostVO@5dcd8c7a]
+2021-03-24 20:13:59,882 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=3, cateName=advertisement, postNo=224, memberNo=33, memberName=KIM JAEUK, title=제목5, readCnt=1, picNo=244, picGroup=224, path=/FEB/pictures/2021/03/디자인과를6.png, toString()=com.sist.feb.category.domain.CatePostVO@2250b9f2]
+2021-03-24 20:13:59,882 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=9, cateName=graphic, postNo=228, memberNo=33, memberName=KIM JAEUK, title=제목9, readCnt=1, picNo=248, picGroup=228, path=/FEB/pictures/2021/03/nothing.jpg, toString()=com.sist.feb.category.domain.CatePostVO@7e3181aa]
+2021-03-24 20:13:59,882 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:11
+2021-03-24 20:13:59,884 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[CatePostVO [categorySeq=1, cateName=architecture, postNo=222, memberNo=33, memberName=KIM JAEUK, title=제목3, readCnt=56, picNo=240, picGroup=222, path=/FEB/pictures/2021/03/강아지6.jpg, toString()=com.sist.feb.category.domain.CatePostVO@61a88b8c], CatePostVO [categorySeq=7, cateName=fashion, postNo=220, memberNo=33, memberName=KIM JAEUK, title=제목1, readCnt=54, picNo=235, picGroup=220, path=/FEB/pictures/2021/03/강아지4.jpg, toString()=com.sist.feb.category.domain.CatePostVO@22295ec4], CatePostVO [categorySeq=8, cateName=illustration, postNo=221, memberNo=33, memberName=KIM JAEUK, title=제목2, readCnt=34, picNo=237, picGroup=221, path=/FEB/pictures/2021/03/강아지5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@5adb0db3], CatePostVO [categorySeq=1, cateName=architecture, postNo=229, memberNo=33, memberName=KIM JAEUK, title=2021-03-23, readCnt=10, picNo=250, picGroup=229, path=/FEB/pictures/2021/03/우미가 그려준 캐릭터.png, toString()=com.sist.feb.category.domain.CatePostVO@3f270e0a], CatePostVO [categorySeq=6, cateName=ux_ui, postNo=227, memberNo=33, memberName=KIM JAEUK, title=제목8, readCnt=5, picNo=247, picGroup=227, path=/FEB/pictures/2021/03/래옹3.jpg, toString()=com.sist.feb.category.domain.CatePostVO@1a760689], CatePostVO [categorySeq=4, cateName=art, postNo=225, memberNo=33, memberName=KIM JAEUK, title=제목6, readCnt=3, picNo=245, picGroup=225, path=/FEB/pictures/2021/03/프로그래머 버그5.jpg, toString()=com.sist.feb.category.domain.CatePostVO@7241a47d], CatePostVO [categorySeq=5, cateName=3d_art, postNo=226, memberNo=33, memberName=KIM JAEUK, title=제목7, readCnt=2, picNo=246, picGroup=226, path=/FEB/pictures/2021/03/에러멈춰1.png, toString()=com.sist.feb.category.domain.CatePostVO@70f59913], CatePostVO [categorySeq=2, cateName=product_design, postNo=223, memberNo=33, memberName=KIM JAEUK, title=제목4, readCnt=2, picNo=243, picGroup=223, path=/FEB/pictures/2021/03/유리2.jpg, toString()=com.sist.feb.category.domain.CatePostVO@77258e59], CatePostVO [categorySeq=1, cateName=architecture, postNo=251, memberNo=1, memberName=Mark, title=마크의 첫 게시물, readCnt=1, picNo=255, picGroup=252, path=/FEB/pictures/2021/03/패션.jpg, toString()=com.sist.feb.category.domain.CatePostVO@5dcd8c7a], CatePostVO [categorySeq=3, cateName=advertisement, postNo=224, memberNo=33, memberName=KIM JAEUK, title=제목5, readCnt=1, picNo=244, picGroup=224, path=/FEB/pictures/2021/03/디자인과를6.png, toString()=com.sist.feb.category.domain.CatePostVO@2250b9f2], CatePostVO [categorySeq=9, cateName=graphic, postNo=228, memberNo=33, memberName=KIM JAEUK, title=제목9, readCnt=1, picNo=248, picGroup=228, path=/FEB/pictures/2021/03/nothing.jpg, toString()=com.sist.feb.category.domain.CatePostVO@7e3181aa]]
+2021-03-24 20:13:59,884 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :11
+2021-03-24 20:14:27,181 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:14:27,183 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:14:27,183 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:14:27,183 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=제목, searchWord=k, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:14:27,183 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:14:27,185 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:14:27,185 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:14:27,185 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:14:27,185 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=제목, searchWord=k, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:14:27,307 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:14:27,738 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:14:27,738 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:14:27,739 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%')   
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:14:27,803 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@3eb81efb
+2021-03-24 20:14:27,858 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@6dee4f1b
+2021-03-24 20:14:27,858 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:14:27,859 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:0
+2021-03-24 20:14:27,861 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[]
+2021-03-24 20:14:27,861 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :0
+2021-03-24 20:14:38,308 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:14:38,311 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:14:38,311 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:14:38,311 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=제목, searchWord=코닥, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:14:38,311 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:14:38,312 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:14:38,312 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:14:38,313 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:14:38,313 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=제목, searchWord=코닥, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:14:38,435 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:14:38,873 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:14:38,873 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:14:38,873 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%')   
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:14:38,942 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@6d026701
+2021-03-24 20:14:38,996 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@22d7b4f8
+2021-03-24 20:14:38,998 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:14:38,999 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@7e3181aa]
+2021-03-24 20:14:38,999 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:1
+2021-03-24 20:14:39,001 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@7e3181aa]]
+2021-03-24 20:14:39,001 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :1
+2021-03-24 20:16:03,498 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:16:03,501 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:16:03,501 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:16:03,501 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=작성자, searchWord=코닥, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:16:03,502 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:16:03,503 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:16:03,503 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:16:03,503 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:16:03,503 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=작성자, searchWord=코닥, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:16:03,624 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:16:04,054 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:16:04,055 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:16:04,055 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND UPPER(m.name) LIKE UPPER('%'|| ? ||'%')    
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:16:04,120 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@1ae8bcbc
+2021-03-24 20:16:04,175 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@176b3f44
+2021-03-24 20:16:04,175 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:16:04,176 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:0
+2021-03-24 20:16:04,178 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[]
+2021-03-24 20:16:04,178 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :0
+2021-03-24 20:16:11,263 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:16:11,265 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:16:11,265 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:16:11,265 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=작성자, searchWord=mark, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:16:11,266 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:16:11,267 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:16:11,267 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:16:11,267 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:16:11,267 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=작성자, searchWord=mark, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:16:11,389 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:16:11,832 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:16:11,832 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:16:11,832 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND UPPER(m.name) LIKE UPPER('%'|| ? ||'%')    
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:16:11,899 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@6304101a
+2021-03-24 20:16:11,954 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@4982cc36
+2021-03-24 20:16:11,957 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:16:11,957 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=251, memberNo=1, memberName=Mark, title=마크의 첫 게시물, readCnt=1, picNo=255, picGroup=252, path=/FEB/pictures/2021/03/패션.jpg, toString()=com.sist.feb.category.domain.CatePostVO@8dbfffb]
+2021-03-24 20:16:11,958 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:1
+2021-03-24 20:16:11,960 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[CatePostVO [categorySeq=1, cateName=architecture, postNo=251, memberNo=1, memberName=Mark, title=마크의 첫 게시물, readCnt=1, picNo=255, picGroup=252, path=/FEB/pictures/2021/03/패션.jpg, toString()=com.sist.feb.category.domain.CatePostVO@8dbfffb]]
+2021-03-24 20:16:11,960 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :1
+2021-03-24 20:16:19,483 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:16:19,485 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:16:19,485 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:16:19,485 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=작성자, searchWord=susan, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:16:19,485 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:16:19,487 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:16:19,487 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:16:19,487 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:16:19,487 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=작성자, searchWord=susan, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:16:19,616 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:16:20,047 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:16:20,047 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:16:20,047 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND UPPER(m.name) LIKE UPPER('%'|| ? ||'%')    
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:16:20,115 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@3eb81efb
+2021-03-24 20:16:20,170 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@4b3ed2f0
+2021-03-24 20:16:20,172 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:16:20,173 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@1a760689]
+2021-03-24 20:16:20,173 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=250, memberNo=2, memberName=Susan, title=태그 테스트, readCnt=1, picNo=254, picGroup=251, path=/FEB/pictures/2021/03/안경3.png, toString()=com.sist.feb.category.domain.CatePostVO@7241a47d]
+2021-03-24 20:16:20,173 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:2
+2021-03-24 20:16:20,175 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@1a760689], CatePostVO [categorySeq=1, cateName=architecture, postNo=250, memberNo=2, memberName=Susan, title=태그 테스트, readCnt=1, picNo=254, picGroup=251, path=/FEB/pictures/2021/03/안경3.png, toString()=com.sist.feb.category.domain.CatePostVO@7241a47d]]
+2021-03-24 20:16:20,175 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :2
+2021-03-24 20:16:30,110 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:55)     - ----------------------------------------------
+2021-03-24 20:16:30,113 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:56)     - ==SearchDetailJdbcTestMain==doCateRetrieve()==
+2021-03-24 20:16:30,113 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:57)     - ----------------------------------------------
+2021-03-24 20:16:30,113 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:59)     - searchDetailVO: SearchDetailVO [searchDiv=제목, searchWord=코닥, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:16:30,114 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:16:30,116 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:16:30,116 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:16:30,116 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:16:30,116 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=제목, searchWord=코닥, toString()=com.sist.feb.search.domain.SearchDetailVO@77ec78b9]
+2021-03-24 20:16:30,239 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:16:30,674 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:16:30,674 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@3315d2d7
+2021-03-24 20:16:30,674 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%')   
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:16:30,744 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@1ae8bcbc
+2021-03-24 20:16:30,797 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@4fad9bb2
+2021-03-24 20:16:30,799 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:16:30,801 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@7241a47d]
+2021-03-24 20:16:30,801 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:1
+2021-03-24 20:16:30,803 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:62)     - resultList :[CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@7241a47d]]
+2021-03-24 20:16:30,804 DEBUG [main] test.SearchDetailJdbcTestMain (SearchDetailJdbcTestMain.java:63)     - doCateRetrieve 건수 :1
+2021-03-24 20:25:58,034 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:56)     - ----------------------------------------------
+2021-03-24 20:25:58,037 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:57)     - ==SearchDetailServiceMain==doCateRetrieve()==
+2021-03-24 20:25:58,037 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:58)     - ----------------------------------------------
+2021-03-24 20:25:58,037 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:60)     - searchDetailVO: SearchDetailVO [searchDiv=제목, searchWord=코닥, toString()=com.sist.feb.search.domain.SearchDetailVO@1a3869f4]
+2021-03-24 20:25:58,037 DEBUG [main] service.SearchDetailService (SearchDetailService.java:40)     - ----------------------------------------------
+2021-03-24 20:25:58,039 DEBUG [main] service.SearchDetailService (SearchDetailService.java:41)     - ==SearchDetailService==doCateRetrieve()==
+2021-03-24 20:25:58,039 DEBUG [main] service.SearchDetailService (SearchDetailService.java:42)     - ----------------------------------------------
+2021-03-24 20:25:58,039 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:25:58,039 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:25:58,039 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:25:58,039 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:25:58,039 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=제목, searchWord=코닥, toString()=com.sist.feb.search.domain.SearchDetailVO@1a3869f4]
+2021-03-24 20:25:58,168 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:25:58,607 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@d6e7bab
+2021-03-24 20:25:58,607 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@d6e7bab
+2021-03-24 20:25:58,607 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%')   
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:25:58,672 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@3eb81efb
+2021-03-24 20:25:58,725 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@4b3ed2f0
+2021-03-24 20:25:58,727 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:25:58,728 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@4f1bfe23]
+2021-03-24 20:25:58,728 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:1
+2021-03-24 20:25:58,730 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:62)     - resultList :[CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@4f1bfe23]]
+2021-03-24 20:25:58,730 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:63)     - doCateRetrieve 건수 :1
+2021-03-24 20:26:02,556 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:56)     - ----------------------------------------------
+2021-03-24 20:26:02,558 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:57)     - ==SearchDetailServiceMain==doCateRetrieve()==
+2021-03-24 20:26:02,558 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:58)     - ----------------------------------------------
+2021-03-24 20:26:02,558 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:60)     - searchDetailVO: SearchDetailVO [searchDiv=제목, searchWord=코닥, toString()=com.sist.feb.search.domain.SearchDetailVO@1a3869f4]
+2021-03-24 20:26:02,559 DEBUG [main] service.SearchDetailService (SearchDetailService.java:40)     - ----------------------------------------------
+2021-03-24 20:26:02,560 DEBUG [main] service.SearchDetailService (SearchDetailService.java:41)     - ==SearchDetailService==doCateRetrieve()==
+2021-03-24 20:26:02,560 DEBUG [main] service.SearchDetailService (SearchDetailService.java:42)     - ----------------------------------------------
+2021-03-24 20:26:02,560 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:52)     - ----------------------------------------------
+2021-03-24 20:26:02,560 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:53)     - ==SearchDetailDao==doCateRetrieve()==
+2021-03-24 20:26:02,560 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:54)     - ----------------------------------------------
+2021-03-24 20:26:02,560 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:59)     - -SearchDetailDao--doCateRetrieve()-
+2021-03-24 20:26:02,561 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:60)     - 0.param:SearchDetailVO [searchDiv=제목, searchWord=코닥, toString()=com.sist.feb.search.domain.SearchDetailVO@1a3869f4]
+2021-03-24 20:26:02,685 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:54)     - 1.JDBC 드라이버 로딩 성공
+2021-03-24 20:26:03,112 DEBUG [main] cmn.ConnectionMaker (ConnectionMaker.java:57)     - 2.데이터베이스 커넥션 구함 oracle.jdbc.driver.T4CConnection@d6e7bab
+2021-03-24 20:26:03,112 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:69)     - 2.데이터베이스 커넥션 구함 :oracle.jdbc.driver.T4CConnection@d6e7bab
+2021-03-24 20:26:03,113 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:107)     - 2.1.쿼리실행 PreparedStatement : SELECT 										         
+     c.CATEGORY_SEQ,                                  
+     c.name AS CATEGORY_NAME,                         
+     p.POST_NO,                                       
+     p.MEMBER_NO,                                     
+     m.name AS MEMBER_NAME,                           
+     p.TITLE,                                         
+     p.READ_CNT,                                      
+     p.pic_no,                                        
+     p1.pic_group,                                    
+     p1.path || '/' ||p1.save_nm AS POST_IMAGE_PATH   
+ FROM category c, post p, picture p1, member m        
+ WHERE c.category_seq = p.category_seq                
+ AND p.pic_no = p1.pic_no                             
+ AND p.pic_group = p1.pic_group                       
+ AND p.member_no = m.member_no                        
+ AND UPPER(p.TITLE) LIKE UPPER('%'|| ? ||'%')   
+ ORDER BY p.READ_CNT DESC                             
+
+2021-03-24 20:26:03,180 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:110)     - 3. PreparedStatement : oracle.jdbc.driver.OraclePreparedStatementWrapper@2609b277
+2021-03-24 20:26:03,233 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:128)     - 3.1. ResultSet :oracle.jdbc.driver.ForwardOnlyResultSet@5d12a356
+2021-03-24 20:26:03,235 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:151)     - ****************
+2021-03-24 20:26:03,236 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:153)     - CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@38831718]
+2021-03-24 20:26:03,236 DEBUG [main] dao.SearchDetailDao (SearchDetailDao.java:155)     - ****게시물 조회 데이터 사이즈****:1
+2021-03-24 20:26:03,238 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:62)     - resultList :[CatePostVO [categorySeq=1, cateName=architecture, postNo=249, memberNo=2, memberName=Susan, title=코닥 사진 올려요!, readCnt=1, picNo=252, picGroup=249, path=/FEB/pictures/2021/03/코닥 로고.jpg, toString()=com.sist.feb.category.domain.CatePostVO@38831718]]
+2021-03-24 20:26:03,238 DEBUG [main] test.SearchDetailServiceMain (SearchDetailServiceMain.java:63)     - doCateRetrieve 건수 :1

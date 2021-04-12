@@ -1,0 +1,67 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.sist.feb.follow.domain.FollowVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<%@ include file="/cmn/common.jsp" %>
+<%
+	
+	int member_no = 0;
+	if(null != request.getParameter("no_to_follow")){
+		member_no = Integer.parseInt(request.getParameter("no_to_follow"));
+	}
+	
+	List<FollowVO> resultList = new ArrayList<FollowVO>();
+	if(null != request.getAttribute("list")){
+		resultList = (List<FollowVO>)request.getAttribute("list");	
+	}
+	
+	
+%>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>member_follow</title>
+    <link rel="stylesheet" href="./member_style.css">
+  </head>
+  <body>
+    <div style="width: 800px;">
+    	<%= member_no%>번 멤버의 팔로잉 페이지 입니다.
+    	<hr/>
+    	
+    	<%
+    		if(null != resultList && resultList.size() > 0){
+    			for(FollowVO vo : resultList){
+    		
+    	%>
+    		<div class="foll_info_box">
+    			<div class="foll_name">
+    				<%=vo.getName() %>
+    			</div>
+    			<div class="foll_subInfo">
+	    			<%=vo.getLocation() %>
+	    			<%=vo.getFollowDt() %><br/>    			
+    			</div>
+				<button class="button" id="un_follow_button" style="width: 80px;">팔로우</button>
+    			<img src="./img/follower.png" alt="follower_image" style="width: 20px;"/>
+    			<%=vo.getTheirFollowedCount() %><br/>
+    			
+    		</div>
+		
+		<%
+    			}
+    		} else {
+		%>
+    		
+    		<span>팔로우한 유저가 없습니다.</span>
+    		
+    	<%
+    		}
+    	%>
+    
+    
+    </div>
+  </body>
+</html>

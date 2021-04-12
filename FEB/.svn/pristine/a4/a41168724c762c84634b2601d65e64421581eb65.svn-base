@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- core -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- 국제화 : 다국어처리 -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<!-- 현위치에 다른 파일의 내용을 포함하고 이후 jsp파일을 java파일로 변환 -->    
+<%@ include file="/cmn/common.jsp" %>  
+<html lang='ko'>
+<head>
+<meta charset="UTF-8">
+<title>eclass_</title>
+<link href="${pageContext.request.contextPath}/css/main_style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	    
+</head>   
+<title>게시 목록</title>
+<!-- jquery document ready -->
+<!-- <body onload="alert('onload');"> -->
+<body >
+<ul>
+	<li>
+		<dl>
+			<dt><a href="#a">제에에에에모오오옥</a></dt>
+			<dd class="img"><a href="#a"><img alt="" src=""></dd>
+			<dd class="price"></dd>
+			<dd class="">
+				<div>몇개 구매</div>
+				<div><a href="#a"><img alt="" src="">찜 21</a></div>
+			</dd>
+		</dl>
+	</li>
+</ul>
+	 
+</body>
+</html>

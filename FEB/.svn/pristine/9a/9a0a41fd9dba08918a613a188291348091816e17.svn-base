@@ -1,0 +1,81 @@
+/**
+* <pre>
+* com.sist.feb.postcate.domain
+* Class Name : PostCateVO.java
+* Description:
+* Author: 임하람
+* Since: 2021/03/07
+* Version 0.1
+* Copyright (c) by H.R.LIM All right reserved.
+* Modification Information
+* 수정일   수정자    수정내용
+*-----------------------------------------------------
+*2021/03/07 최초생성
+*-----------------------------------------------------
+* </pre>
+*/
+package com.sist.feb.postcate.domain;
+
+import com.sist.feb.postcate.cmn.DTO;
+
+/**
+ * @author 임하람
+ *
+ */
+public class PostCateVO extends DTO {
+	
+	private int post_cate_no;//게시물분야번호
+	private int post_no;//게시물번호
+	private int category_seq;//분야(카테고리)번호
+	
+	public PostCateVO() { } //default 생성자
+
+
+	public PostCateVO(int post_cate_no, int post_no, int category_seq) {
+		super();
+		this.post_cate_no = post_cate_no;
+		this.post_no = post_no;
+		this.category_seq = category_seq;
+	}
+
+	//setter & getter
+	public int getPost_cate_no() {
+		return post_cate_no;
+	}
+
+
+	public void setPost_cate_no(int post_cate_no) {
+		this.post_cate_no = post_cate_no;
+	}
+
+
+	public int getPost_no() {
+		return post_no;
+	}
+
+
+	public void setPost_no(int post_no) {
+		this.post_no = post_no;
+	}
+
+
+	public int getCategory_seq() {
+		return category_seq;
+	}
+
+
+	public void setCategory_seq(int category_seq) {
+		this.category_seq = category_seq;
+	}
+
+
+	@Override
+	public String toString() {
+		return "PostCateVO [post_cate_no=" + post_cate_no + ", post_no=" + post_no + ", category_seq=" + category_seq
+				+ ", toString()=" + super.toString() + "]";
+	}
+	
+
+	
+
+}//--class

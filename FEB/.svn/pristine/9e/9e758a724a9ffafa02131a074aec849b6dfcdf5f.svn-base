@@ -1,0 +1,384 @@
+<%@page import="java.io.File"%>
+<%@page import="com.sist.feb.post.domain.PostPicVO"%>
+<%@page import="com.sist.feb.post.domain.PostVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="/cmn/common.jsp"%>
+<!-- core태그 -->
+<%@ taglib prefix= "c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- 국제화 태그 -->
+<%@ taglib prefix= "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %><!-- jstl안먹을때 이거 넣어줌 -->
+
+<%
+	String cateDiv ="";
+	PostPicVO vo = (PostPicVO)request.getAttribute("vo");
+	cateDiv=Integer.toString(vo.getCategorySeq());
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Enhance_project_upload</title>
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>	
+	
+	<!-- header style 가져오기 -->
+	<link href="${pageContext.request.contextPath}/main_css/style.css" rel="stylesheet" type="text/css"/>
+	
+	<!-- bootStrap -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	
+	<!--<link rel="stylesheet" href="/FEB/css/bootstrap.min.css">  -->
+	<!-- 부가적인 테마 -->
+	<link rel="stylesheet" href="/FEB/css/bootstrap-theme.min.css">
+	
+	<!-- contents layout -->
+	<link rel="stylesheet" href="/FEB/css/bootstrap.css">
+
+	<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+	<script src="/FEB/js/bootstrap.min.js"></script>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+	crossorigin="anonymous">
+
+<!-- css -->
+<style>
+	body {
+		padding-bottom: 30px;
+	}
+	
+	.container {
+		padding-top: 100px;
+		color: black;
+	}
+	
+	.button {
+		background-color: #263343;
+		font-weight: bold;
+		color: #ffffff;
+		border: 0.1em solid gray;
+		border-radius: 6px;
+		padding: 5px;
+		margin: 5px;
+		width: 60px;
+	}
+	
+	.button1 {
+		background-color: #f5f5f5;
+		font-weight: bold;
+		border: 0.1em solid gray;
+		border-radius: 6px;
+		padding: 4px;
+		margin: 10px;
+		width: 100px;
+	}
+	
+	.form-control {
+		margin: 5px;
+		padding: 12px;
+		border: 0.1em solid gray;
+		border-radius: 5px;
+		resize: none;
+		width: 1100px;
+	}
+	
+	a {
+		text-decoration: none;
+		color: white;
+		padding: 8px 12px;
+	}
+	
+/* 	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #263343;
+		padding: 8px 12px;
+	}
+	
+	.navbar_logo {
+		font-size: 29px;
+		color: white;
+	}
+	
+	.navbar_logo i {
+		color: #d49466;
+	}
+	
+	.navbar_menu {
+		display: flex;
+		font-size: 22px;
+		list-style: none;
+		padding-left: 0;
+		margin-top: 20px;
+		float: left;
+	}
+	
+	.navbar_menu li {
+		padding: 8px 12px;
+	}
+	
+	.navbar_menu li:hover {
+		background-color: #d49466;
+		border-radius: 4px;
+	}
+	
+	.navbar_icons {
+		font-size: 22px;
+		list-style: none;
+		color: white;
+		display: flex;
+		margin-top: 20px;
+	}
+	
+	.navbar_icons li {
+		padding: 5px 12px;
+	} */
+	
+	/* 해시태그 css  */
+	ul.tag_list {
+        padding: 16px 0;
+    }
+
+    .tag_list > li {
+        display: inline-block;
+        margin: 0 5px;
+        font-size: 14px;
+        letter-spacing: -.5px;
+    }
+    
+    ul li.tag-item {
+        padding: 4px 8px;
+        background-color: #777;
+        color: #000;
+    }
+    
+    .tag-item:hover {
+        background-color: #262626;
+        color: #fff;
+    }
+    
+     .del-btn {
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-left: 8px;
+    }
+    /* 해시태그 css  */
+    
+    .box-radio-input input[type="radio"]{
+	  display:none; /* 라디오타입 동그라미 선택지 없애는거 */
+	}
+	
+	.box-radio-input input[type="radio"] + span{
+	
+	  display:inline-block;
+	  background:none;
+	  border:1px solid #dfdfdf;  
+	  padding:0px 10px;
+	  text-align:center;
+	  height:35px;
+	  line-height:33px;
+	  font-weight:500;
+	  cursor:pointer;
+	}
+	
+	.box-radio-input input[type="radio"]:checked + span{
+	 
+	  background:#23a3a7;
+	  color:#fff;
+	}
+	
+	.magin >label {
+		margin-left: 5px;
+	}
+	
+	.contents_box {
+		
+/* 		border-radius: 4px;
+		border: solid 1px #dfdfdf; */
+		background-color: white;
+		width: 1080px;
+		padding: 30px;
+		text-align: center;
+		margin: 0 auto ;
+		
+	}
+	
+	img {
+	  	width: 50%;
+		object-fit: cover;
+	}
+	
+	.wrap1 {
+		
+		/* height: 1000px; */
+		padding: 100px;
+		width: 1080px;
+		margin: 0 auto;
+		
+	}
+    
+    .wrap2{
+    	/* height:60%; */
+		margin: 0 auto;
+    }
+</style>
+
+</head>
+
+<body>
+	<!-- 헤더 -->
+	<jsp:include page="/cmn/header.jsp"></jsp:include>
+	<!-- 헤더 -->
+
+	<div class="wrap1">
+		<div class= "text-right">
+			<button type="button" class="button" id="move_to_list">목록</button>  
+		<!-- 	<button type="button" class="button" onclick="moveToMod();">수정</button> 
+		 -->
+		 </div>
+		<h2><%=vo.getTitle() %></h2>
+		<hr></hr>
+		<form  action="<%=cPath %>/post/post.do" method="post" id="regform" name="regform" > <!-- ${pageContext.request.contextPath} --> 
+			<input type="hidden" name="work_type" value=""/>
+		 	<input type="hidden" name="post_no" id="post_no" value="<%=vo.getPostNo() %>"/><!-- 게시글 번호로 조회 -->
+				
+			<div class="mb-3 magin">
+				<p for="category">분야</p>
+				<!-- 21	architecture
+	                 22	product_design
+	                 23	advertisement
+	                 24	art
+	                 41	3d_art
+	                 42	ux_ui
+	                 43	fashion
+	                 3	illustration
+	                 4	graphic
+	                 5	photography  -->
+				<label class="box-radio-input">
+					<input type="radio" name="category" id="category" value="21" 
+					<c:if test="${vo.getCategorySeq()=='21'}">selected</c:if>>
+					<span>건축</span>
+					
+				</label>
+				<label class="box-radio-input">
+					<input type="radio" name="category" id="category" value="22"
+					<c:if test="${vo.getCategorySeq()=='22'}">selected</c:if>>
+					<span>산업디자인</span>
+				</label>
+				<label class="box-radio-input">
+					<input type="radio" name="category" id="category" value="23"
+					<c:if test="${vo.getCategorySeq()=='23'}">selected</c:if>>
+					<span>광고</span>
+				</label>
+				<label class="box-radio-input">
+					<input type="radio" name="category" id="category" value="24"
+					<c:if test="${vo.getCategorySeq()=='24'}">selected</c:if>>
+					<span>미술</span>
+				</label>
+				<label class="box-radio-input">
+					<input type="radio" name="category" id="category" value="41"
+					<c:if test="${vo.getCategorySeq()=='41'}">selected</c:if>>
+					<span>3D아트</span>
+				</label>
+				<label class="box-radio-input">
+					<input type="radio" name="category" id="category" value="42"
+					<%if (null !=cateDiv && "42".equals(cateDiv)){out.print("selected");} %>>
+					<span>UI/UX</span>
+				</label>
+				<label class="box-radio-input">
+					<input type="radio" name="category" id="category" value="43"
+					<%if (null !=cateDiv && "43".equals(cateDiv)){out.print("selected");} %>>
+					<span>패션</span>
+				</label>
+				<label class="box-radio-input">
+					<input type="radio" name="category" id="category" value="3"
+					<%if (null !=cateDiv && "3".equals(cateDiv)){out.print("selected");} %>>
+					<span>일러스트레이션</span>
+				</label>
+				<label class="box-radio-input">
+					<input type="radio" name="category" id="category" value="4"
+					<%if (null !=cateDiv && "4".equals(cateDiv)){out.print("selected");} %>>
+					<span>그래픽디자인</span>
+				</label>
+				<label class="box-radio-input">
+					<input type="radio" name="category" id="category" value="5"
+					<%if (null !=cateDiv && "5".equals(cateDiv)){out.print("selected");} %>>
+					<span>포토그래피</span>
+				</label>
+			</div>
+			<div> 
+				<label for="contents">내용</label> 
+				<div>
+					<img alt="이미지" src="<%=vo.getPath()%>">
+				</div>
+				<div class="contents_box">
+					<p><%=vo.getContents() %></p>
+				</div>
+			</div> 
+			<div>
+				<label for="contents">태그</label> 
+				<input type="text" readonly = "readonly" value="<%= vo.getTagName()%>"/>
+			</div>
+		</form> 
+	</div> 
+	
+	<div class="wrap2">
+  		<jsp:include page="/reply/reply_list.jsp" />
+ 	</div>
+	
+	
+</body>
+
+
+<script type="text/javascript">
+/* id는 자바 스크립트에서 다룰려고 지정하는 것이고 name은 파라미터 전송을 하기 위해서 지정하는 것이다. */
+
+	$(document).ready(function() {
+		console.log("1.document ready: 최초수행!");
+		
+		// name이 category고, value가 cateDiv인 라디오 버튼 체크
+		$('input:radio[name=category]:input[value="${vo.getCategorySeq()}"]').attr("checked", true);
+		
+	});//--document ready
+	
+	//목록화면으로 이동
+	function moveToList() {
+		var listUrl = "<%=cPath%>/category/category.do?work_div=doCateRetrieve"
+		console.log("-listUrl-" + listUrl);
+		window.location.href = listUrl;
+
+	}
+
+	//목록에 Event감지 (moveToList 목록으로 이동)
+	$("#move_to_list").on("click", function(e) {
+		console.log("move_to_list");
+		moveToList();
+	});
+	
+	//수정페이지 이동-----------------------------------------------------
+	function moveToMod() {
+		var modUrl = "<%=cPath%>/post/post.do?work_type=doUpdate"
+		console.log("-modUrl-"+modUrl);
+		window.location.href = modUrl;
+	}
+
+	//수정페이지 이동-----------------------------------------------------
+	
+	
+	       
+
+</script>
+
+
+
+</html>
