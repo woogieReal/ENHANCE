@@ -1,6 +1,5 @@
 package com.sist.feb.post.controller;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -25,7 +24,6 @@ import com.sist.feb.member.cmn.StringUtil;
 import com.sist.feb.member.domain.MemberVO;
 import com.sist.feb.picture.domain.PictureVO;
 import com.sist.feb.post.cmn.PostMsgVO;
-import com.sist.feb.post.dao.PostDao;
 import com.sist.feb.post.domain.PostPicVO;
 import com.sist.feb.post.domain.PostVO;
 import com.sist.feb.post.service.PostService;
