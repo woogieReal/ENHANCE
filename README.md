@@ -18,13 +18,8 @@
  * java 1.8
  * oracle 18c
  * apache-tomcat-9.0.37
- * html
- * css
- * jsp
- * javascript
- * jQuery
- * jstl
- * svn(SubVersion)
+ * html/css/jsp
+ * svn
 
 ## 이용 방법
 
