@@ -34,6 +34,10 @@
    * 비밀번호 중복체크 추가
    * 국가 미선택시 알림창 추가
 
+<img src="/05. 샘플/로그인.gif" width="100%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
+<img src="/05. 샘플/카테고리.gif" width="100%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
+
+
 ## 정보
 
 김재욱 – [@블로그 주소](https://woogiereal.tistory.com/) – 123wodnr@naver.com
