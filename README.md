@@ -40,7 +40,9 @@
 
 <img src="/05.샘플/카테고리.gif" width="100%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
 
+<img src="/05.샘플/팔로우,저장,좋아요.gif" width="100%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
 
+<img src="/05.샘플/작업들,언팔로우.gif" width="100%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
 ## 정보
 
 김재욱 – [@블로그 주소](https://woogiereal.tistory.com/) – 123wodnr@naver.com
